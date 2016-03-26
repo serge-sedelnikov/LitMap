@@ -4,7 +4,6 @@ import {inject} from 'aurelia-framework';
 
 @inject(I18N, Element, EventAggregator)
 export class App {
-  message = 'Welcome to Aurelia!';
 
   constructor(i18n, element, ea){
     this.i18n = i18n;
