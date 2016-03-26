@@ -152,6 +152,7 @@ System.config({
       "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js"
     ]
   },
+
   map: {
     "-a": "npm:babel-core@5.8.38",
     "-a-runtime": "npm:babel-runtime@5.8.38",
