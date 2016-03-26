@@ -11,7 +11,7 @@ import XHR from 'i18next-xhr-backend'; // <-- your previously installed backend 
         .use(XHR)
         .init({
           backend: {
-            loadPath: 'content/locales/{{lng}}.json'
+            loadPath: 'locales/{{lng}}.json'
           },
           lng : 'ru',
           attributes : ['t','i18n'],
