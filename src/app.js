@@ -1,5 +1,5 @@
-import "github:components/jquery@2.2.1/jquery.min.js";
-import "bootstrap/js/bootstrap.min.js";
+import "github:components/jquery@2.2.1/jquery";
+import "github:twbs/bootstrap@3.3.6/js/bootstrap";
 import {I18N, BaseI18N} from 'aurelia-i18n';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
@@ -15,7 +15,8 @@ export class App {
   configureRouter(config, router) {
     config.title = this.i18n.i18next.t('app.title');
     config.map([
-      { route: ['','map'], name: 'map', moduleId: './components/map', nav: true, title:this.i18n.i18next.t('app.mapNav') }
+      { route: ['','map'], name: 'map', moduleId: './components/map', nav: true, title:this.i18n.i18next.t('app.mapNav') },
+      { route: [':data'], name: 'details', moduleId: './components/details', nav: false, title:this.i18n.i18next.t('app.details') }
     ]);
 
     this.router = router;

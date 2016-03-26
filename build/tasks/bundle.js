@@ -57,7 +57,9 @@ var config = {
         'text',
         'fetch',
         'thomaspark/bootswatch/paper/bootstrap.min.css!text',
-        'babel'
+        'babel',
+        'github:components/jquery@2.2.1/jquery',
+        'github:twbs/bootstrap@3.3.6/js/bootstrap'
       ],
       options: {
         inject: true,
