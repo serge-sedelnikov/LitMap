@@ -33,7 +33,8 @@
       "fetch": "github:github/fetch@^0.10.1",
       "font-awesome": "npm:font-awesome@^4.4.0",
       "i18next-xhr-backend": "npm:i18next-xhr-backend@^0.5.3",
-      "text": "github:systemjs/plugin-text@^0.0.4"
+      "text": "github:systemjs/plugin-text@^0.0.4",
+      "thomaspark/bootswatch": "github:thomaspark/bootswatch@^3.3.6"
     },
     "devDependencies": {
       "-a": "npm:babel-core@^5.8.24",

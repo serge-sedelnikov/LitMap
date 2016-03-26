@@ -39,6 +39,7 @@ System.config({
     "font-awesome": "npm:font-awesome@4.5.0",
     "i18next-xhr-backend": "npm:i18next-xhr-backend@0.5.3",
     "text": "github:systemjs/plugin-text@0.0.4",
+    "thomaspark/bootswatch": "github:thomaspark/bootswatch@3.3.6",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

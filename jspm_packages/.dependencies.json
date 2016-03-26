@@ -192,5 +192,6 @@
     "process": "github:jspm/nodelibs-process@^0.1.0"
   },
   "npm:i18next-xhr-backend@0.5.3": {},
-  "github:andyearnshaw/Intl.js@1.1.0": {}
+  "github:andyearnshaw/Intl.js@1.1.0": {},
+  "github:thomaspark/bootswatch@3.3.6": {}
 }
