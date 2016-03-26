@@ -12,3 +12,7 @@ body { margin:0; padding:0; }
 .navbar-nav > li {
   text-transform: uppercase;
 }
+
+.logo{
+  margin-top: -6px;
+}
