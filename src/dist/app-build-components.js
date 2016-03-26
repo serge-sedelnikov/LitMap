@@ -1,0 +1,1 @@
+"bundle";!function(){var a=System.amdDefine;a("components/map.html!github:systemjs/plugin-text@0.0.4.js",[],function(){return'<template> <div id="map"></div> </template>'})}();

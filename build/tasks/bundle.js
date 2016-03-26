@@ -10,7 +10,26 @@ var config = {
       includes: [
         '[*.js]',
         '*.html!text',
-        '*.css!text',
+      ],
+      options: {
+        inject: true,
+        minify: true
+      }
+    },
+    "src/dist/app-build-components": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
+      includes: [
+        'components/[*.js]',
+        'components/*.html!text',
+      ],
+      options: {
+        inject: true,
+        minify: true
+      }
+    },
+    "src/dist/app-build-elements": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
+      includes: [
+        'elements/[*.js]',
+        'elements/*.html!text',
       ],
       options: {
         inject: true,
@@ -20,6 +39,7 @@ var config = {
     "src/dist/vendor-build": {
       includes: [
         'aurelia-bootstrapper',
+        'aurelia-framework',
         'aurelia-fetch-client',
         'aurelia-router',
         'aurelia-animator-css',
@@ -29,10 +49,15 @@ var config = {
         'aurelia-router',
         'aurelia-history-browser',
         'aurelia-logging-console',
-        
+        'aurelia-event-aggregator',
+        'aurelia-loader-default',
+        'aurelia-loader',
+        'aurelia-i18n',
+        'i18next-xhr-backend',
+        'text',
+        'fetch',
         'thomaspark/bootswatch/paper/bootstrap.min.css!text',
-
-
+        'babel'
       ],
       options: {
         inject: true,
