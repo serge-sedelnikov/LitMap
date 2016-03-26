@@ -11,7 +11,7 @@ export class App {
   }
 
   configureRouter(config, router) {
-    config.title = 'Aurelia';
+    config.title = this.i18n.i18next.t('app.title');
     config.map([
       { route: ['','map'], name: 'map', moduleId: './components/map', nav: true, title:this.i18n.i18next.t('app.mapNav') }
     ]);
