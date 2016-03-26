@@ -1,0 +1,1 @@
+module.exports = require("github:andyearnshaw/Intl.js@1.1.0/index.js");
