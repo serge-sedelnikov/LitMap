@@ -12,8 +12,14 @@ body { margin:0; padding:0; }
 }
 
 @-webkit-keyframes sk-rotateplane {
-  0% { -webkit-transform: perspective(120px) }
-  100% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  }
+  100% {
+    transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg);
+    -webkit-transform: perspective(120px) rotateY(-180.1deg) rotateX(0deg)
+  }
 }
 
 @keyframes sk-rotateplane {
