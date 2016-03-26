@@ -8,20 +8,15 @@ export class App {
 
   constructor(i18n, element, ea){
     this.i18n = i18n;
-    this.i18n.setLocale('en-US');
+    this.i18n.setLocale('ru');
   }
 
-  attached(){
-    L.mapbox.accessToken = 'pk.eyJ1Ijoic2VyZ2V5c2VkZWxuaWtvdiIsImEiOiJjaW05NzZucDEwMDBnd2RtOGo0N3U4YTJ4In0.BnhUwye9rhjh9z2124wkQA';
-    var map = L.mapbox.map('map', 'mapbox.streets')
-        .setView([57.15000, 65.53333], 12);
-  }
+  configureRouter(config, router) {
+    config.title = 'Aurelia';
+    config.map([
+      { route: ['','map'], name: 'map', moduleId: './components/map', nav: true, title:this.i18n.i18next.t('app.mapNav') }
+    ]);
 
-  selLocale(){
-    this.i18n.setLocale('ru')
-            .then( () => {
-            // locale is loaded
-              console.log('locale loaded');
-        });
+    this.router = router;
   }
 }

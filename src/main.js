@@ -13,7 +13,7 @@ import XHR from 'i18next-xhr-backend'; // <-- your previously installed backend 
           backend: {
             loadPath: '/locales/{{lng}}.json'
           },
-          lng : 'en-US',
+          lng : 'ru',
           attributes : ['t','i18n'],
           fallbackLng : 'en',
           debug : true,
