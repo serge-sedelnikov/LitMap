@@ -150,6 +150,7 @@ System.config({
       "npm:process@0.11.2/browser.js"
     ],
     "dist/app-build-components.js": [
+      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
       "components/map.html!github:systemjs/plugin-text@0.0.4.js"
     ],
     "dist/app-build-elements.js": [
