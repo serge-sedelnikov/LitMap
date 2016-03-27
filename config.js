@@ -21,9 +21,35 @@ System.config({
     "dist/vendor-build.js": [
       "github:github/fetch@0.10.1.js",
       "github:github/fetch@0.10.1/fetch.js",
+      "github:jspm/nodelibs-buffer@0.1.0.js",
+      "github:jspm/nodelibs-buffer@0.1.0/index.js",
+      "github:jspm/nodelibs-process@0.1.2.js",
+      "github:jspm/nodelibs-process@0.1.2/index.js",
+      "github:jspm/nodelibs-util@0.1.0.js",
+      "github:jspm/nodelibs-util@0.1.0/index.js",
       "github:systemjs/plugin-text@0.0.4.js",
       "github:systemjs/plugin-text@0.0.4/text.js",
-      "github:thomaspark/bootswatch@3.3.6/paper/bootstrap.min.css!github:systemjs/plugin-text@0.0.4.js"
+      "github:thomaspark/bootswatch@3.3.6/paper/bootstrap.min.css!github:systemjs/plugin-text@0.0.4.js",
+      "npm:base64-js@0.0.8.js",
+      "npm:base64-js@0.0.8/lib/b64.js",
+      "npm:buffer@3.6.0.js",
+      "npm:buffer@3.6.0/index.js",
+      "npm:ieee754@1.1.6.js",
+      "npm:ieee754@1.1.6/index.js",
+      "npm:inherits@2.0.1.js",
+      "npm:inherits@2.0.1/inherits_browser.js",
+      "npm:isarray@1.0.0.js",
+      "npm:isarray@1.0.0/index.js",
+      "npm:lodash@4.6.1.js",
+      "npm:lodash@4.6.1/lodash.js",
+      "npm:markdown@0.5.0.js",
+      "npm:markdown@0.5.0/lib/index.js",
+      "npm:markdown@0.5.0/lib/markdown.js",
+      "npm:process@0.11.2.js",
+      "npm:process@0.11.2/browser.js",
+      "npm:util@0.10.3.js",
+      "npm:util@0.10.3/support/isBufferBrowser.js",
+      "npm:util@0.10.3/util.js"
     ],
     "dist/app-build-components.js": [
       "components/details.html!github:systemjs/plugin-text@0.0.4.js",
@@ -149,9 +175,12 @@ System.config({
       "npm:i18next@2.4.0/index.js",
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js"
+    ],
+    "dist/vendor-babel.js": [
+      "npm:babel-core@5.8.38.js",
+      "npm:babel-core@5.8.38/browser.js"
     ]
   },
-
   map: {
     "-a": "npm:babel-core@5.8.38",
     "-a-runtime": "npm:babel-runtime@5.8.38",

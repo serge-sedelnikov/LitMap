@@ -65,6 +65,17 @@ var config = {
         'text',
         'fetch',
         'thomaspark/bootswatch/paper/bootstrap.min.css!text',
+        'markdown',
+        'lodash'
+      ],
+      options: {
+        inject: true,
+        minify: true
+      }
+    },
+    "src/dist/vendor-babel": {
+      includes: [
+        'npm:babel-core@5.8.38'
       ],
       options: {
         inject: true,
