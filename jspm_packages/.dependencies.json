@@ -193,5 +193,24 @@
   },
   "npm:i18next-xhr-backend@0.5.3": {},
   "github:andyearnshaw/Intl.js@1.1.0": {},
-  "github:thomaspark/bootswatch@3.3.6": {}
+  "github:thomaspark/bootswatch@3.3.6": {},
+  "npm:lodash@4.6.1": {
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "github:jspm/nodelibs-buffer@0.1.0": {
+    "buffer": "npm:buffer@^3.0.1"
+  },
+  "npm:buffer@3.6.0": {
+    "base64-js": "npm:base64-js@0.0.8",
+    "ieee754": "npm:ieee754@^1.1.4",
+    "isarray": "npm:isarray@^1.0.0",
+    "child_process": "github:jspm/nodelibs-child_process@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0"
+  },
+  "npm:isarray@1.0.0": {},
+  "npm:ieee754@1.1.6": {},
+  "npm:base64-js@0.0.8": {},
+  "github:jspm/nodelibs-child_process@0.1.0": {}
 }

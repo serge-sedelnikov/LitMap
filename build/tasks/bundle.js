@@ -36,10 +36,8 @@ var config = {
         minify: true
       }
     },
-
     "src/dist/vendor-aurelia": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
       includes: [
-        'npm:babel-core@5.8.38',
         'aurelia-bootstrapper',
         'aurelia-framework',
         'aurelia-fetch-client',
