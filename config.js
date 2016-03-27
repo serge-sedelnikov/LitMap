@@ -19,19 +19,22 @@ System.config({
       "main.js"
     ],
     "dist/vendor-build.js": [
-      "github:components/jquery@2.2.1.js",
-      "github:components/jquery@2.2.1/jquery.js",
       "github:github/fetch@0.10.1.js",
       "github:github/fetch@0.10.1/fetch.js",
-      "github:jspm/nodelibs-process@0.1.2.js",
-      "github:jspm/nodelibs-process@0.1.2/index.js",
       "github:systemjs/plugin-text@0.0.4.js",
       "github:systemjs/plugin-text@0.0.4/text.js",
-      "github:thomaspark/bootswatch@3.3.6/paper/bootstrap.min.css!github:systemjs/plugin-text@0.0.4.js",
-      "github:twbs/bootstrap@3.3.6.js",
-      "github:twbs/bootstrap@3.3.6/js/bootstrap.js",
-      "npm:aurelia-animator-css@1.0.0-beta.1.2.0.js",
-      "npm:aurelia-animator-css@1.0.0-beta.1.2.0/aurelia-animator-css.js",
+      "github:thomaspark/bootswatch@3.3.6/paper/bootstrap.min.css!github:systemjs/plugin-text@0.0.4.js"
+    ],
+    "dist/app-build-components.js": [
+      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
+      "components/map.html!github:systemjs/plugin-text@0.0.4.js"
+    ],
+    "dist/app-build-elements.js": [
+      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js"
+    ],
+    "dist/vendor-aurelia.js": [
+      "github:jspm/nodelibs-process@0.1.2.js",
+      "github:jspm/nodelibs-process@0.1.2/index.js",
       "npm:aurelia-binding@1.0.0-beta.1.3.0.js",
       "npm:aurelia-binding@1.0.0-beta.1.3.0/aurelia-binding.js",
       "npm:aurelia-bootstrapper@1.0.0-beta.1.2.0.js",
@@ -149,12 +152,9 @@ System.config({
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js"
     ],
-    "dist/app-build-components.js": [
-      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/map.html!github:systemjs/plugin-text@0.0.4.js"
-    ],
-    "dist/app-build-elements.js": [
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js"
+    "dist/vendor-babel.js": [
+      "npm:babel-core@5.8.38.js",
+      "npm:babel-core@5.8.38/browser.js"
     ]
   },
   map: {

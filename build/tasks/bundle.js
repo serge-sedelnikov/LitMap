@@ -36,30 +36,37 @@ var config = {
         minify: true
       }
     },
-    "src/dist/vendor-build": {
+
+    "src/dist/vendor-aurelia": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
       includes: [
+        'npm:babel-core@5.8.38',
         'aurelia-bootstrapper',
         'aurelia-framework',
         'aurelia-fetch-client',
-        'aurelia-router',
-        'aurelia-animator-css',
-        'aurelia-templating-binding',
-        'aurelia-templating-resources',
-        'aurelia-templating-router',
+        //'aurelia-router',
+        // 'aurelia-animator-css',
+         'aurelia-templating-binding',
+        // 'aurelia-templating-resources',
+         'aurelia-templating-router',
         'aurelia-router',
         'aurelia-history-browser',
-        'aurelia-logging-console',
+         'aurelia-logging-console',
         'aurelia-event-aggregator',
         'aurelia-loader-default',
         'aurelia-loader',
         'aurelia-i18n',
-        'i18next-xhr-backend',
+        'i18next-xhr-backend'
+      ],
+      options: {
+        inject: true,
+        minify: true
+      }
+    },
+    "src/dist/vendor-build": {
+      includes: [
         'text',
         'fetch',
         'thomaspark/bootswatch/paper/bootstrap.min.css!text',
-        'babel',
-        'github:components/jquery@2.2.1/jquery',
-        'github:twbs/bootstrap@3.3.6/js/bootstrap'
       ],
       options: {
         inject: true,
