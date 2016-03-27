@@ -2,43 +2,52 @@ import _ from "lodash";
 import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
+import m from 'markdown';
+import {I18N} from 'aurelia-i18n';
 
-@inject(HttpClient)
+@inject(I18N, HttpClient)
 export class Map{
 
-  constructor(http){
+  constructor(i18bn, http){
     this.self = this;
     self.http = http;
+    self.i18bn = i18bn;
 
     self.points = [{
       pos: [57.153525, 65.514422],
       color: "#49ACF2",
-      marker: 'park'
+      marker: 'park',
+      data: 'data1'
     },
     {
       pos: [57.145169, 65.577218],
       color: "#49ACF2",
-      marker: 'park2'
+      marker: 'park2',
+      data: 'data1'
     },
     {
       pos: [57.148405, 65.567143],
       color: "#49ACF2",
-      marker: 'monument'
+      marker: 'monument',
+      data: 'data2'
     },
     {
       pos: [57.133828, 65.550730],
       color: "#F53155",
-      marker: 'building'
+      marker: 'building',
+      data: 'data2'
     },
     {
       pos: [57.144173, 65.526712],
       color: "#49ACF2",
-      marker: 'theatre'
+      marker: 'theatre',
+      data: 'data2'
     },
     {
       pos: [57.134690, 65.561341],
       color: "#F53155",
-      marker: 'building'
+      marker: 'building',
+      data: 'data1'
     }];
   }
 
@@ -56,17 +65,14 @@ export class Map{
               }),
             title: 'index'
         });
-        marker.on('mouseover', (e)=>{
-          e.target.openPopup();
-        });
         //fetch marker text as md and set poopup as html
-        self.http.fetch('data/data1.md')
+        self.http.fetch('data/' + a.data + '.md')
         .then(d=>{
           return d.text();
         })
         .then(t=>{
-          let html = micromarkdown.parse(t);
-          marker.bindPopup(html);
+          let html = m.markdown.toHTML(t);
+          marker.bindPopup('<div class="marker-thumb">' + html + '</div><div class="text-right"><a href="/#/gogol" class="btn btn-default">' + self.i18bn.i18next.t('map.marker.readMore') + '</a></div>');
           markers.addLayer(marker);
         })
     });
