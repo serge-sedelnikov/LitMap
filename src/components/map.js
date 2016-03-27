@@ -1,9 +1,15 @@
 import _ from "lodash";
+import 'fetch';
+import {HttpClient} from 'aurelia-fetch-client';
+import {inject} from 'aurelia-framework';
 
+@inject(HttpClient)
 export class Map{
 
-  constructor(){
+  constructor(http){
     this.self = this;
+    self.http = http;
+
     self.points = [{
       pos: [57.153525, 65.514422],
       color: "#49ACF2",
@@ -53,8 +59,16 @@ export class Map{
         marker.on('mouseover', (e)=>{
           e.target.openPopup();
         });
-        marker.bindPopup('<a href="/#/ghghghg">hello google</a>');
-        markers.addLayer(marker);
+        //fetch marker text as md and set poopup as html
+        self.http.fetch('data/data1.md')
+        .then(d=>{
+          return d.text();
+        })
+        .then(t=>{
+          let html = micromarkdown.parse(t);
+          marker.bindPopup(html);
+          markers.addLayer(marker);
+        })
     });
 
     map.addLayer(markers);
