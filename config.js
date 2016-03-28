@@ -56,7 +56,8 @@ System.config({
       "components/map.html!github:systemjs/plugin-text@0.0.4.js"
     ],
     "dist/app-build-elements.js": [
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js"
+      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/navBar.js"
     ],
     "dist/vendor-aurelia.js": [
       "github:jspm/nodelibs-process@0.1.2.js",
@@ -179,7 +180,9 @@ System.config({
     "dist/vendor-babel.js": [
       "npm:babel-core@5.8.38.js",
       "npm:babel-core@5.8.38/browser.js"
-    ]
+    ],
+    "dist/styles.js": [],
+    "dist/styles.css.js": []
   },
   map: {
     "-a": "npm:babel-core@5.8.38",

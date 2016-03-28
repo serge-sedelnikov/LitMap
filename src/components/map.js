@@ -12,50 +12,13 @@ export class Map{
     this.self = this;
     self.http = http;
     self.i18bn = i18bn;
-
-    self.points = [{
-      pos: [57.153525, 65.514422],
-      color: "#49ACF2",
-      marker: 'park',
-      data: 'data1'
-    },
-    {
-      pos: [57.145169, 65.577218],
-      color: "#49ACF2",
-      marker: 'park2',
-      data: 'data1'
-    },
-    {
-      pos: [57.148405, 65.567143],
-      color: "#49ACF2",
-      marker: 'monument',
-      data: 'data2'
-    },
-    {
-      pos: [57.133828, 65.550730],
-      color: "#F53155",
-      marker: 'building',
-      data: 'data2'
-    },
-    {
-      pos: [57.144173, 65.526712],
-      color: "#49ACF2",
-      marker: 'theatre',
-      data: 'data2'
-    },
-    {
-      pos: [57.134690, 65.561341],
-      color: "#F53155",
-      marker: 'building',
-      data: 'data1'
-    }];
   }
 
   //fetching markers from the backend and putting them on the map
-  fetchMarkers(map){
+  fetchMarkers(points, map){
     //set up clustering
     var markers = new L.MarkerClusterGroup();
-    _.forEach(self.points, a=>{
+    _.forEach(points, a=>{
         var marker = L.marker(new L.LatLng(a.pos[0], a.pos[1]), {
             icon: L.mapbox.marker.icon(
               {
@@ -66,13 +29,13 @@ export class Map{
             title: 'index'
         });
         //fetch marker text as md and set poopup as html
-        self.http.fetch('data/' + a.data + '.md')
+        self.http.fetch('data/thumbs/' + a.data + '.md')
         .then(d=>{
           return d.text();
         })
         .then(t=>{
           let html = m.markdown.toHTML(t);
-          marker.bindPopup('<div class="marker-thumb">' + html + '</div><div class="text-right"><a href="/#/gogol" class="btn btn-default">' + self.i18bn.i18next.t('map.marker.readMore') + '</a></div>');
+          marker.bindPopup('<div class="marker-thumb">' + html + '</div><div class="text-right"><a href="/#/' + a.data + '" class="btn btn-default">' + self.i18bn.i18next.t('map.marker.readMore') + '</a></div>');
           markers.addLayer(marker);
         })
     });
@@ -80,16 +43,30 @@ export class Map{
     map.addLayer(markers);
   }
 
+  fetchIndex(map){
+      self.http.fetch('data/index.json')
+      .then(response=>{
+        //convert text to json
+        return response.json()
+      })
+      .then(json=>{
+        //once file downloaded, fetch markers
+        this.fetchMarkers(json, map)
+      })
+  }
+
   //on attached to DOM
   attached(){
+
     //initialize map access
     L.mapbox.accessToken = 'pk.eyJ1Ijoic2VyZ2V5c2VkZWxuaWtvdiIsImEiOiJjaW05NzZucDEwMDBnd2RtOGo0N3U4YTJ4In0.BnhUwye9rhjh9z2124wkQA';
+    
     self.map = L.mapbox
         .map('map', 'mapbox.streets')
         .setView([57.15000, 65.53333], 12);
 
-
+    //start loading index file and once its done, fetch markers data.
     //start fetching markers
-    this.fetchMarkers(self.map);
+    this.fetchIndex(self.map);
   }
 }

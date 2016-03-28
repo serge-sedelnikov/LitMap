@@ -18,7 +18,7 @@ var config = {
     },
     "src/dist/app-build-components": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
       includes: [
-        'components/[*.js]',
+        // '[components/*.js]',
         'components/*.html!text',
       ],
       options: {
@@ -28,7 +28,7 @@ var config = {
     },
     "src/dist/app-build-elements": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
       includes: [
-        'elements/[*.js]',
+        '[elements/*.js]',
         'elements/*.html!text',
       ],
       options: {
@@ -72,16 +72,8 @@ var config = {
         inject: true,
         minify: true
       }
-    },
-    "src/dist/vendor-babel": {
-      includes: [
-        'npm:babel-core@5.8.38'
-      ],
-      options: {
-        inject: true,
-        minify: true
-      }
     }
+
   }
 };
 
