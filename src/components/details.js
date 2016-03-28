@@ -37,6 +37,6 @@ export class Details{
     }
 
     attached(){
-      $(this.element).find('img').addClass('img-responsive')
+      $(this.element).find('#data').find('img').addClass('img-responsive img-thumbnail')
     }
 }
