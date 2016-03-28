@@ -3,6 +3,7 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
 import m from 'markdown';
 import {I18N} from 'aurelia-i18n';
+import $ from 'jquery';
 
 @inject(I18N, HttpClient)
 export class Details{
@@ -11,6 +12,7 @@ export class Details{
     constructor(i18n, http){
       this.http = http;
       this.i18n = i18n;
+      this.data = '';
     }
 
     //on activate, get link to the param
@@ -30,6 +32,11 @@ export class Details{
       .then(data=>{
         let html = m.markdown.toHTML(data);
         this.data = html;
-      })
+      });
+    }
+
+    dataChanged(newValue, oldValue){
+      console.log('data changed');
+      $('img').addClass('img-responsive')
     }
 }

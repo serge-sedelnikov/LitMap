@@ -1,6 +1,18 @@
 <template>
 
-  <div class="container page-content" innerHTML.bind="data">
+  <div class="page-content">
+
+    <div class="col-md-3">
+        <h5 t="details.closeToThisPlace"></h5>
+    </div>
+
+    <div class="col-md-6" innerHTML.bind="data"></div>
+
+    <div class="col-md-3">
+        <h5 t="details.alsoInteresting"></h5>
+    </div>
+  </div>
+
   </div>
 
 </template>

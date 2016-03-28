@@ -5,7 +5,9 @@
     "title": "Литературная Тюмень"
   },
   "details":{
-    "title": "страница о писателе"
+    "title": "страница о писателе",
+    "closeToThisPlace": "Поблизости",
+    "alsoInteresting": "Может быть интересно"
   },
   "map":{
     "marker":{
