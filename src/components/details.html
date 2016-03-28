@@ -3,18 +3,27 @@
 
   <div class="page-content">
 
-    <div class="col-md-3">
-        <h5 t="details.closeToThisPlace"></h5>
-        <close-info repeat.for="i of closeInfos"></close-info>
+    <div>
+      <div class="col-md-3">
+          <h5 t="details.closeToThisPlace"></h5>
+          <close-info repeat.for="i of closeInfos"></close-info>
+      </div>
+
+      <div class="col-md-5 data" id="data" innerHTML.bind="data"></div>
+
+      <div class="col-md-4">
+          <h5 t="details.alsoInteresting"></h5>
+      </div>
     </div>
 
-    <div class="col-md-5 data" id="data" innerHTML.bind="data"></div>
+<div class="col-md-5 col-md-offset-3">
+  <div id="mc-container"></div>
+</div>
 
-    <div class="col-md-4">
-        <h5 t="details.alsoInteresting"></h5>
-    </div>
-  </div>
 
-  </div>
 
+
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
 </template>

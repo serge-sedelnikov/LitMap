@@ -174,18 +174,6 @@ System.config({
       "npm:i18next@2.4.0/index.js",
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js"
-    ],
-    "dist/vendor-babel.js": [
-      "npm:babel-core@5.8.38.js",
-      "npm:babel-core@5.8.38/browser.js"
-    ],
-    "dist/styles.js": [],
-    "dist/styles.css.js": [],
-    "dist/app-build-components.js": [
-      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/details.js",
-      "components/map.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/map.js"
     ]
   },
   map: {
