@@ -1,14 +1,16 @@
 <template>
+  <require from="../elements/closeInfo"></require>
 
   <div class="page-content">
 
     <div class="col-md-3">
         <h5 t="details.closeToThisPlace"></h5>
+        <close-info repeat.for="i of closeInfos"></close-info>
     </div>
 
-    <div class="col-md-6 data" id="data" innerHTML.bind="data"></div>
+    <div class="col-md-5 data" id="data" innerHTML.bind="data"></div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
         <h5 t="details.alsoInteresting"></h5>
     </div>
   </div>

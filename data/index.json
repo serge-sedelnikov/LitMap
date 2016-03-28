@@ -4,6 +4,12 @@
     "color": "#49ACF2",
     "marker": "star",
     "data": "krapivin_vladislav_petrovich"
+  },
+  {
+    "pos": [57.144196, 65.559873],
+    "color": "#FF174D",
+    "marker": "theatre",
+    "data": "tumen_drama_theatre"
   }
 
 ]
