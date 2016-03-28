@@ -14,20 +14,40 @@
 
     <link rel="icon"  type="image/png"  href="content/logo1.png">
     <link rel="stylesheet" href="styles/styles.css">
-    <link  rel='stylesheet' href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css'/>
+    <link rel="stylesheet" href="jspm_packages/github/thomaspark/bootswatch@3.3.6/paper/bootstrap.min.css">
+
+    <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+
   </head>
 
   <body aurelia-app="main">
 
-    <img src="content/logo2.png"  class="loading"/>
+
+    <div class="spinner yellow"></div>
+
+    <blockquote style="width: 500px; margin-left: auto; margin-right: auto">
+      Сентябрьский солнечный день,</br>
+      Собор над ленивой рекою,</br>
+      И мост из Тюмени в Тюмень,</br>
+      И бронзовый лист под ногою.</br>
+    </blockquote>
+    <div class="text-right" style="width: 500px; margin-left: auto; margin-right: auto">
+      <author >Ольга ДАНИЛОВА-ПУШКАРЬ, г. Тюмень</author>
+    </div>
+
+
 
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script>
-      SystemJS.import('aurelia-bootstrapper');
+       SystemJS.import('aurelia-bootstrapper');
     </script>
   </body>
 </html>

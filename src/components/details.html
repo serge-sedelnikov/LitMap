@@ -1,7 +1,18 @@
 <template>
 
-  <div class="container page-content">
-    <h1 t="details.title"></h1>
+  <div class="page-content">
+
+    <div class="col-md-3">
+        <h5 t="details.closeToThisPlace"></h5>
+    </div>
+
+    <div class="col-md-6 data" id="data" innerHTML.bind="data"></div>
+
+    <div class="col-md-3">
+        <h5 t="details.alsoInteresting"></h5>
+    </div>
+  </div>
+
   </div>
 
 </template>
