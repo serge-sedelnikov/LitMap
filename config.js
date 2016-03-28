@@ -51,10 +51,6 @@ System.config({
       "npm:util@0.10.3/support/isBufferBrowser.js",
       "npm:util@0.10.3/util.js"
     ],
-    "dist/app-build-components.js": [
-      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/map.html!github:systemjs/plugin-text@0.0.4.js"
-    ],
     "dist/app-build-elements.js": [
       "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
       "elements/navBar.js"
