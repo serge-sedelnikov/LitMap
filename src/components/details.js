@@ -5,13 +5,14 @@ import m from 'markdown';
 import {I18N} from 'aurelia-i18n';
 import $ from 'jquery';
 
-@inject(I18N, HttpClient)
+@inject(I18N, HttpClient, Element)
 export class Details{
 
     //constructor
-    constructor(i18n, http){
+    constructor(i18n, http, Element){
       this.http = http;
       this.i18n = i18n;
+      this.element = Element;
       this.data = '';
     }
 
@@ -35,8 +36,7 @@ export class Details{
       });
     }
 
-    dataChanged(newValue, oldValue){
-      console.log('data changed');
-      $('img').addClass('img-responsive')
+    attached(){
+      $(this.element).find('img').addClass('img-responsive')
     }
 }

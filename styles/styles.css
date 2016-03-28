@@ -117,3 +117,7 @@ author{
   font-size: 22px !important;
   font-weight: bold;
 }
+
+.img-responsive{
+  width: 100%;
+}
