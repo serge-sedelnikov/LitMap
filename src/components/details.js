@@ -25,12 +25,15 @@ export class Details{
       this.fetchIndex();
 
       //start fetching data about user
-      return this.fetchData(this.link);
+      return this.fetchData(this.link)
+      .then(()=>{
+        this.initializeComments(this.link);
+      });
     }
 
     //refresh closest once data changed
-    dataChanged(){
-      this.fetchIndex();
+    attached(){
+      // this.initializeComments(this.link);
     }
 
     //fetching index file and show data on screen
@@ -77,7 +80,7 @@ export class Details{
       });
     }
 
-    initializeDisqus(link){
+    initializeComments(link){
       window.cackle_widget = [];
       window.cackle_widget.push(
         {
