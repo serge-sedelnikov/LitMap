@@ -14,6 +14,7 @@ export class Details{
       this.element = Element;
       this.data = '';
       this.closeInfos = [];
+      this.self = this;
     }
 
     //on activate, get link to the param
@@ -27,18 +28,23 @@ export class Details{
       return this.fetchData(this.link);
     }
 
-    fetchIndex(map){
-        this.http.fetch('data/index.json')
+    dataChanged(){
+      this.fetchIndex();
+    }
+
+    fetchIndex(){
+        return this.http.fetch('data/index.json')
         .then(response=>{
           //convert text to json
           return response.json()
         })
         .then(json=>{
-          this.closeInfos = json;
-          this.currentDetails = _.first(this.closeInfos, (c)=>{
-            return c.data == this.link;
-          })
-        });
+            this.closeInfos = json;
+            this.currentDetails = _.find(this.closeInfos, (c)=>{
+              return c.data == this.link;
+            });
+            console.log(this.currentDetails.data);
+          });
     }
 
     //fetching data about given link
