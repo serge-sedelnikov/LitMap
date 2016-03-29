@@ -14,12 +14,10 @@ export class CloseInfo{
       html: true
     });
   }
-
+  
   bind(){
     //calculate and display distance
-    let p1 = new L.LatLng(this.data.pos[0], this.data.pos[1]);
-    let p2 = new L.LatLng(this.details.pos[0], this.details.pos[1]);
-    this.distance = p1.distanceTo(p2).toFixed(0);
+    this.distance = this.data.distance;
 
     //fetch the file with the given link from thumbs
     this.http.fetch('data/thumbs/' +this.data.data + '.md')

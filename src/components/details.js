@@ -28,10 +28,12 @@ export class Details{
       return this.fetchData(this.link);
     }
 
+    //refresh closest once data changed
     dataChanged(){
       this.fetchIndex();
     }
 
+    //fetching index file and show data on screen
     fetchIndex(){
         return this.http.fetch('data/index.json')
         .then(response=>{
@@ -39,11 +41,20 @@ export class Details{
           return response.json()
         })
         .then(json=>{
-            this.closeInfos = json;
-            this.currentDetails = _.find(this.closeInfos, (c)=>{
+            let infos = json;
+            this.currentDetails = _.find(infos, (c)=>{
               return c.data == this.link;
             });
-            console.log(this.currentDetails.data);
+              //order them by didtance
+              let p1 = new L.LatLng(this.currentDetails.pos[0], this.currentDetails.pos[1]);
+
+              this.closeInfos = _.sortBy(infos, (info)=>{
+
+              let p2 = new L.LatLng(info.pos[0], info.pos[1]);
+              info.distance = p1.distanceTo(p2).toFixed(0);
+              return parseInt(info.distance);
+
+            });
           });
     }
 
