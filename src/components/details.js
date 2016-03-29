@@ -29,24 +29,31 @@ export class Details{
 
     //fetching data about given link
     fetchData(link){
+
+      //init markdown render to html
+      let md = new Remarkable({
+        html: true
+      });
+
       return this.http.fetch('data/full/' + link + '.md')
       .then(response=>{
         return response.text();
       })
       .then(data=>{
-        let html = m.markdown.toHTML(data);
+        let html = md.render(data);
         this.data = html;
       });
     }
 
     initializeDisqus(link){
-      window.cackle_widget = window.cackle_widget || [];
+      window.cackle_widget = [];
       window.cackle_widget.push(
         {
           widget: 'Comment',
           id: 43259,
           channel: link
         });
+
 
       var mc = document.createElement('script');
       mc.type = 'text/javascript';
@@ -57,7 +64,12 @@ export class Details{
 
     //on attahed to DOM
     attached(){
-      $(this.element).find('#data').find('img').addClass('img-responsive img-thumbnail')
+      //adjust images
+      $(this.element).find('#data').find('img').addClass('img-responsive img-thumbnail');
+      //adjust video
+      $(this.element).find('#data').find('iframe').addClass('embed-responsive-item');
+      //wrap it into responsive div
+      $(this.element).find('#data').find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
       this.initializeDisqus(this.link);
     }
 
