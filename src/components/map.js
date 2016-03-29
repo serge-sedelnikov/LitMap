@@ -68,7 +68,7 @@ export class Map{
     let thumbs = $('<div>' + html + '</div>');
     thumbs.find('img').addClass('img-responsive img-thumbnail');
     //adjust video
-    thumbs.find('iframe').addClass('embed-responsive-item');
+    thumbs.find('iframe').addClass('embed-responsive-item iframe-thumbnail');
     //wrap it into responsive div
     thumbs.find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
 
@@ -83,7 +83,7 @@ export class Map{
 
     self.map = L.mapbox
         .map('map', 'mapbox.streets')
-        .setView([57.15000, 65.53333], 12);
+        .setView([57.15000, 65.53333], 11);
 
     //start loading index file and once its done, fetch markers data.
     //start fetching markers

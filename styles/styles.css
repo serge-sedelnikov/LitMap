@@ -121,3 +121,16 @@ author{
 .img-responsive{
   width: 100%;
 }
+
+.iframe-thumbnail{
+    padding: 4px;
+    line-height: 1.846;
+    background-color: #ffffff;
+    border: 1px solid #dddddd !important;
+    border-radius: 3px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    display: inline-block;
+    max-width: 100%;
+}
