@@ -10,6 +10,12 @@
     "color": "#FF174D",
     "marker": "theatre",
     "data": "tumen_drama_theatre"
+  },
+  {
+    "pos": [57.244196, 65.539873],
+    "color": "#49ACF2",
+    "marker": "star",
+    "data": "clarcson"
   }
 
 ]
