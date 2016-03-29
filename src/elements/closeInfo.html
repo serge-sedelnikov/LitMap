@@ -1,5 +1,16 @@
 <template>
-  <div class="close-info">
-    fff
+  <div style="display: ${distance | distanceToVisibility}">
+
+    <div class="close-info">
+      <span class="label label-default">${distance | toDistanceView}&nbsp;<span t="closeInfo.meters"></span></span>
+
+      <div innerHTML.bind="html"></div>
+
+      <div class="text-right">
+        <a href="/#/${data.data}" class="btn bnt-default" t="map.marker.readMore"></a>
+      </div>
+    </div>
+    <hr/>
+
   </div>
 </template>

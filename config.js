@@ -18,12 +18,6 @@ System.config({
       "app.js",
       "main.js"
     ],
-    "dist/app-build-elements.js": [
-      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/closeInfo.js",
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/navBar.js"
-    ],
     "dist/vendor-aurelia.js": [
       "github:jspm/nodelibs-process@0.1.2.js",
       "github:jspm/nodelibs-process@0.1.2/index.js",

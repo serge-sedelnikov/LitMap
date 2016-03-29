@@ -2,6 +2,7 @@ import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
+import _ from 'lodash';
 
 @inject(I18N, HttpClient, Element)
 export class Details{
@@ -12,18 +13,32 @@ export class Details{
       this.i18n = i18n;
       this.element = Element;
       this.data = '';
-      this.closeInfos = [{
-        data: 'theatre',
-        pos: [65, 54]
-      }];
+      this.closeInfos = [];
     }
 
     //on activate, get link to the param
     activate(params){
       this.link = params.data;
 
+      //fetch index to show close data and interesting data
+      this.fetchIndex();
+
       //start fetching data about user
       return this.fetchData(this.link);
+    }
+
+    fetchIndex(map){
+        this.http.fetch('data/index.json')
+        .then(response=>{
+          //convert text to json
+          return response.json()
+        })
+        .then(json=>{
+          this.closeInfos = json;
+          this.currentDetails = _.first(this.closeInfos, (c)=>{
+            return c.data == this.link;
+          })
+        });
     }
 
     //fetching data about given link
@@ -40,6 +55,7 @@ export class Details{
       })
       .then(data=>{
         let html = md.render(data);
+        html = this.adjustMedia(html);
         this.data = html;
       });
     }
@@ -53,7 +69,6 @@ export class Details{
           channel: link
         });
 
-
       var mc = document.createElement('script');
       mc.type = 'text/javascript';
       mc.async = true;
@@ -61,18 +76,16 @@ export class Details{
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
     }
 
-    //on attahed to DOM
-    attached(){
+    //adjusts media in thumbnails of the markers.
+    adjustMedia(html){
       //adjust images
-      $(this.element).find('#data').find('img').addClass('img-responsive img-thumbnail');
+      let thumbs = $('<div>' + html + '</div>');
+      thumbs.find('img').addClass('img-responsive img-thumbnail');
       //adjust video
-      $(this.element).find('#data').find('iframe').addClass('embed-responsive-item');
+      thumbs.find('iframe').addClass('embed-responsive-item iframe-thumbnail');
       //wrap it into responsive div
-      $(this.element).find('#data').find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
-      this.initializeDisqus(this.link);
-    }
+      thumbs.find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
 
-    detached(){
-
+      return thumbs.html();
     }
 }

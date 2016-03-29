@@ -13,5 +13,8 @@
     "marker":{
       "readMore": "Далее"
     }
+  },
+  "closeInfo":{
+    "meters": "м"
   }
 }

@@ -7,7 +7,8 @@
       <div class="col-md-3">
         <div class="section">
           <h5 t="details.closeToThisPlace"></h5>
-          <close-info repeat.for="i of closeInfos"></close-info>
+          <hr/>
+          <close-info class="info-tile" repeat.for="i of closeInfos" data.bind="i" details.bind="currentDetails"></close-info>
         </div>
       </div>
 
@@ -18,6 +19,7 @@
       <div class="col-md-3">
           <div class="section">
             <h5 t="details.alsoInteresting"></h5>
+            <hr/>
           </div>
       </div>
 
