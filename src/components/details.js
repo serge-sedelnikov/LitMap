@@ -1,7 +1,6 @@
 import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
-import m from 'markdown';
 import {I18N} from 'aurelia-i18n';
 
 @inject(I18N, HttpClient, Element)

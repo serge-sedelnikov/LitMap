@@ -1,19 +1,19 @@
 [
   {
     "pos": [57.153525, 65.514422],
-    "color": "#49ACF2",
+    "color": "#9C27B0",
     "marker": "star",
     "data": "krapivin_vladislav_petrovich"
   },
   {
     "pos": [57.144196, 65.559873],
-    "color": "#FF174D",
+    "color": "#D50000",
     "marker": "theatre",
     "data": "tumen_drama_theatre"
   },
   {
     "pos": [57.244196, 65.539873],
-    "color": "#49ACF2",
+    "color": "#E91E63",
     "marker": "star",
     "data": "clarcson"
   }

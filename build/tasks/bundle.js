@@ -64,8 +64,6 @@ var config = {
       includes: [
         'text',
         'fetch',
-        'thomaspark/bootswatch/paper/bootstrap.min.css!text',
-        'markdown',
         'lodash'
       ],
       options: {
