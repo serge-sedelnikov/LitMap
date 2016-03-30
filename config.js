@@ -159,6 +159,7 @@ System.config({
       "npm:process@0.11.2/browser.js"
     ]
   },
+
   map: {
     "-a": "npm:babel-core@5.8.38",
     "-a-runtime": "npm:babel-runtime@5.8.38",
@@ -186,10 +187,12 @@ System.config({
     "font-awesome": "npm:font-awesome@4.5.0",
     "i18next-xhr-backend": "npm:i18next-xhr-backend@0.5.3",
     "jszip": "npm:jszip@2.6.0",
+    "kombai/freewall": "github:kombai/freewall@1.0.5",
     "lodash": "npm:lodash@4.6.1",
     "mammoth": "npm:mammoth@0.3.33",
     "markdown": "npm:markdown@0.5.0",
     "stephen-hardy/DOCX.js": "github:stephen-hardy/DOCX.js@master",
+    "suprb/Nested": "github:suprb/Nested@master",
     "text": "github:systemjs/plugin-text@0.0.4",
     "thomaspark/bootswatch": "github:thomaspark/bootswatch@3.3.6",
     "github:jspm/nodelibs-assert@0.1.0": {

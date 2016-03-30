@@ -1,3 +1,15 @@
 <template>
+  <div class="page-content container">
 
+    <div class="section index-top">
+
+    </div>
+
+    <div class="wall-container" id="wall-container">
+      <div class="section" repeat.for="i of infos">
+          <close-info class="info-tile" data.bind="i"></close-info>
+        </div>
+    </div>
+
+  </div>
 </template>

@@ -155,6 +155,15 @@ author{
   margin-top: 0;
 }
 
+.section-gap{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 .info-tile:last-child hr{
   display: none;
+}
+
+.index-top{
+  min-height: 400px;
 }

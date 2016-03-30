@@ -12,6 +12,12 @@
     "data": "tumen_drama_theatre"
   },
   {
+    "pos": [57.134196, 65.559273],
+    "color": "#D50000",
+    "marker": "theatre",
+    "data": "tumen_drama_theatre"
+  },
+  {
     "pos": [57.244196, 65.539873],
     "color": "#E91E63",
     "marker": "star",
