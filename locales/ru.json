@@ -1,8 +1,8 @@
 {
   "app": {
-    "mapNav": "карта",
-    "homeNav": "домой",
-    "details": "детали",
+    "mapNav": "Карта",
+    "homeNav": "Главное",
+    "details": "Детали",
     "title": "Литературная Тюмень"
   },
   "details":{
@@ -18,5 +18,9 @@
   "closeInfo":{
     "meters": "м",
     "kilometers": "км"
+  },
+  "home":{
+    "interestingThisWeek":"Интересное на этой неделе",
+    "nearMe": "Недалеко от меня"
   }
 }

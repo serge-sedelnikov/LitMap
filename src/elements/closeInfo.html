@@ -2,7 +2,7 @@
   <div>
 
     <div class="close-info">
-      <span class="label label-default">${distance | toDistanceView}</span>
+      <span if.bind="distance" class="label label-default">${distance | toDistanceView}</span>
 
       <div innerHTML.bind="html"></div>
 

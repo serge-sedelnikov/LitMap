@@ -1,15 +1,27 @@
 <template>
+  <require from="../elements/closeInfo"></require>
+
   <div class="page-content container">
 
     <div class="section index-top">
 
     </div>
 
-    <div class="wall-container" id="wall-container">
-      <div class="section section-fixed" repeat.for="i of infos">
-          <close-info class="info-tile" data.bind="i"></close-info>
-        </div>
-    </div>
+    <section>
+      <h4 t="home.interestingThisWeek"></h4>
 
+      <div class="wall-container" id="wall-container">
+        <div class="wall-item" repeat.for="i of infos">
+            <div class="section">
+              <close-info class="info-tile" data.bind="i"></close-info>
+            </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h4 t="home.nearMe"></h4>
+    </section>
   </div>
 </template>

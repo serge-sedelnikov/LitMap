@@ -3,7 +3,6 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import _ from 'lodash';
-import Bricks from 'bricks.js';
 
 @inject(I18N, HttpClient, Element)
 export class Home{
@@ -24,31 +23,30 @@ export class Home{
   //fetching index file and show data on screen
   fetchIndex(){
     return this.http.fetch('data/index.json')
-    .then(response=>{
-      //convert text to json
-      return response.json()
-    })
-    .then(json=>{
-        let infos = json;
+        .then(response=>{
+          //convert text to json
+          return response.json()
+        })
+        .then(json=>{
+            let infos = json;
 
-        //filter for closest by 10km distance
-        this.infos = infos;
+            //filter for closest by 10km distance
+            this.infos = infos;
 
-      });
+          });
   }
 
   //on DOM attached
   attached(){
-    const sizes = [
-            { columns: 4, gutter: 15 },
-          ];
-    let br = Bricks({
-          container: '#wall-container',
-          packed: 'data-info',
-          sizes: sizes
-        });
 
-    br.pack();
-    br.resize(true);
+    setTimeout(()=>{
+      let containerSelector = '.wall-container';
+      let container = $(this.element).find(containerSelector);
+      new Masonry(containerSelector, {
+            // options
+            itemSelector: '.wall-item',
+            percentPosition: true
+          });
+    }, 500);
   }
 }
