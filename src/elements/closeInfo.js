@@ -3,18 +3,20 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import ma from '../elements/mediaAdjuster'
 import {I18N} from 'aurelia-i18n';
+import {EventAggregator} from 'aurelia-event-aggregator'
 
-@inject(HttpClient)
+@inject(HttpClient, EventAggregator)
 export class CloseInfo{
 @bindable data; //details to display
 @bindable details; //parentData
 
-  constructor(http){
+  constructor(http, ea){
     this.http = http;
     //init markdown renderer
     this.md = new Remarkable({
       html: true
     });
+    this.ea = ea;
   }
 
   bind(){
@@ -32,6 +34,10 @@ export class CloseInfo{
         html = ma.adjustMedia(html);
         this.html = html;
       });
+  }
+
+  attached(){
+    this.ea.publish('close-info-attached');
   }
 }
 

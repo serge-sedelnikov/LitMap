@@ -1,10 +1,11 @@
 import {bindable, inject} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator'
 
-@inject(Element)
+@inject(Element, EventAggregator)
 export class Wall{
   @bindable infos;
 
-  constructor(Element){
+  constructor(Element, ea){
     this.element = Element;
   }
 
@@ -19,14 +20,14 @@ export class Wall{
   initWall(){
     let containerSelector = '.wall-container';
     let container = $(this.element).find(containerSelector);
-    var wall = new Masonry(container[0], {
+    this.wall = new Masonry(container[0], {
           // options
           itemSelector: '.wall-item',
           percentPosition: true,
           transitionDuration: '0.2s'
         });
     setTimeout(()=>{
-      wall.layout();
-    }, 500);
+      this.wall.layout();
+    }, 700);
   }
 }
