@@ -15,6 +15,7 @@
     }
   },
   "closeInfo":{
-    "meters": "м"
+    "meters": "м",
+    "kilometers": "км"
   }
 }

@@ -51,8 +51,8 @@ export class ToDistanceViewValueConverter{
   toView(value){
     let num = parseInt(value);
 
-    var resDist = (value > 1000 ? (value/1000.0).toFixed(1) : value);
-    var resUnit = (resDist > 1000 ? this.i18n.i18next.t("closeInfo.meters") : this.i18n.i18next.t("closeInfo.kilometers"));
+    var resDist = (num > 1000 ? (num/1000.0).toFixed(1) : value);
+    var resUnit = (num > 1000 ? this.i18n.i18next.t("closeInfo.kilometers") : this.i18n.i18next.t("closeInfo.meters"));
 
     return resDist + ' ' + resUnit;
   }
