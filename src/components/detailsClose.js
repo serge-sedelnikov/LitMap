@@ -17,12 +17,13 @@ export class DetailsClose{
     this.self = this;
   }
 
-  //om view activated
+  //on parent details chaning
   parentDataChanged(){
     //fetch index to show close data and interesting data
     return this.fetchIndex();
   }
 
+  //initial data fetching to display stuff
   bind(){
     //fetch index to show close data and interesting data
     return this.fetchIndex();
@@ -41,14 +42,11 @@ export class DetailsClose{
     .then(json=>{
         let infos = json;
 
-
-
+        //calculate distence and show them ordered by distance
         this.closeInfos = _.sortBy(infos, (info)=>{
-
-        let p2 = new L.LatLng(info.pos[0], info.pos[1]);
-        info.distance = p1.distanceTo(p2).toFixed(0);
-        return parseInt(info.distance);
-
+            let p2 = new L.LatLng(info.pos[0], info.pos[1]);
+            info.distance = p1.distanceTo(p2).toFixed(0);
+            return parseInt(info.distance);
         });
       });
   }

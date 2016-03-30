@@ -2,6 +2,7 @@ import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import ma from '../elements/mediaAdjuster'
+import {I18N} from 'aurelia-i18n';
 
 @inject(HttpClient)
 export class CloseInfo{
@@ -21,27 +22,38 @@ export class CloseInfo{
     this.distance = this.data.distance;
 
     //fetch the file with the given link from thumbs
-    this.http.fetch('data/thumbs/' +this.data.data + '.md')
-    .then(response=>{
-      return response.text();
-    })
-    .then(t=>{
-      let html = this.md.render(t);
-      html = ma.adjustMedia(html);
-      this.html = html;
-    });
+    return this.http.fetch('data/thumbs/' +this.data.data + '.md')
+      .then(response=>{
+        return response.text();
+      })
+      .then(t=>{
+        let html = this.md.render(t);
+        html = ma.adjustMedia(html);
+        this.html = html;
+      });
   }
 }
 
+//convert distance into visibility. if 0, hide the tile.
 export class DistanceToVisibilityValueConverter{
   toView(value){
-    return (value == "0" ? "none" : "inherit");
+    return (value == 0 ? "none" : "inherit");
   }
 }
 
+@inject(I18N, HttpClient, Element)
 export class ToDistanceViewValueConverter{
+
+  constructor(I18N){
+    this.i18n = I18N;
+  }
+
   toView(value){
     let num = parseInt(value);
-    return (value > 1000 ? (value/1000.0).toFixed(1) : value);
+
+    var resDist = (value > 1000 ? (value/1000.0).toFixed(1) : value);
+    var resUnit = (resDist > 1000 ? this.i18n.i18next.t("closeInfo.meters") : this.i18n.i18next.t("closeInfo.kilometers"));
+
+    return resDist + ' ' + resUnit;
   }
 }

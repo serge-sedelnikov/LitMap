@@ -71,6 +71,7 @@ export class Details{
       });
     }
 
+    //initialize comments section
     initializeComments(link){
       window.cackle_widget = [];
       window.cackle_widget.push(
