@@ -28,6 +28,6 @@ export class Wall{
         });
     setTimeout(()=>{
       this.wall.layout();
-    }, 700);
+    }, 1000);
   }
 }
