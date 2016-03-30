@@ -6,8 +6,8 @@ import {I18N} from 'aurelia-i18n';
 
 @inject(HttpClient)
 export class CloseInfo{
-@bindable data;
-@bindable details;
+@bindable data; //details to display
+@bindable details; //parentData
 
   constructor(http){
     this.http = http;
@@ -19,7 +19,8 @@ export class CloseInfo{
 
   bind(){
     //calculate and display distance
-    this.distance = this.data.distance;
+    if(this.data)
+      this.distance = this.data.distance;
 
     //fetch the file with the given link from thumbs
     return this.http.fetch('data/thumbs/' +this.data.data + '.md')
