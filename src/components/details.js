@@ -1,6 +1,6 @@
 import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
-import {inject} from 'aurelia-framework';
+import {inject, bindable} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import _ from 'lodash';
 
@@ -13,27 +13,22 @@ export class Details{
       this.i18n = i18n;
       this.element = Element;
       this.data = '';
-      this.closeInfos = [];
-      this.self = this;
+      var self = this;
     }
-
+    
     //on activate, get link to the param
     activate(params){
       this.link = params.data;
 
-      //fetch index to show close data and interesting data
-      this.fetchIndex();
+      var p1 = this.fetchIndex();
 
       //start fetching data about user
-      return this.fetchData(this.link)
+      var p2 = this.fetchData(this.link)
       .then(()=>{
         this.initializeComments(this.link);
       });
-    }
 
-    //refresh closest once data changed
-    attached(){
-      // this.initializeComments(this.link);
+      return Promise.all([p1, p2]);
     }
 
     //fetching index file and show data on screen
@@ -44,20 +39,15 @@ export class Details{
           return response.json()
         })
         .then(json=>{
+
             let infos = json;
-            this.currentDetails = _.find(infos, (c)=>{
+            let cur = _.find(infos, (c)=>{
               return c.data == this.link;
             });
-              //order them by didtance
-              let p1 = new L.LatLng(this.currentDetails.pos[0], this.currentDetails.pos[1]);
 
-              this.closeInfos = _.sortBy(infos, (info)=>{
-
-              let p2 = new L.LatLng(info.pos[0], info.pos[1]);
-              info.distance = p1.distanceTo(p2).toFixed(0);
-              return parseInt(info.distance);
-
-            });
+            return cur;
+          }).then(c=>{
+            this.currentDetails = c;
           });
     }
 

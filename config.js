@@ -158,18 +158,6 @@ System.config({
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js"
     ],
-    "dist/app-build-components.js": [
-      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/details.js",
-      "components/map.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/map.js"
-    ],
-    "dist/app-build-elements.js": [
-      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/closeInfo.js",
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/navBar.js"
-    ]
   },
   map: {
     "-a": "npm:babel-core@5.8.38",

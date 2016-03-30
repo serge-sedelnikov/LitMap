@@ -1,5 +1,5 @@
 <template>
-  <require from="../elements/closeInfo"></require>
+  <require from="./detailsClose"></require>
 
   <div class="page-content">
 
@@ -8,12 +8,17 @@
         <div class="section">
           <h5 t="details.closeToThisPlace"></h5>
           <hr/>
-          <close-info class="info-tile" repeat.for="i of closeInfos" data.bind="i" details.bind="currentDetails"></close-info>
+          <details-close parent-data.bind="currentDetails"></details-close>
         </div>
       </div>
 
       <div class="col-md-6 data" id="data">
         <div class="section" innerHTML.bind="data"></div>
+
+        <div class="section">
+            <div id="mc-container"></div>
+        </div>
+
       </div>
 
       <div class="col-md-3">
@@ -22,13 +27,6 @@
             <hr/>
           </div>
       </div>
-
-      <div class="col-md-6 col-md-offset-3">
-        <div class="section">
-            <div id="mc-container"></div>
-        </div>
-      </div>
-
     </div>
 </div>
 </template>
