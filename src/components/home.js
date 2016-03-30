@@ -35,18 +35,4 @@ export class Home{
 
           });
   }
-
-  //on DOM attached
-  attached(){
-
-    setTimeout(()=>{
-      let containerSelector = '.wall-container';
-      let container = $(this.element).find(containerSelector);
-      new Masonry(containerSelector, {
-            // options
-            itemSelector: '.wall-item',
-            percentPosition: true
-          });
-    }, 500);
-  }
 }
