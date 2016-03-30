@@ -43,11 +43,17 @@ export class DetailsClose{
         let infos = json;
 
         //calculate distence and show them ordered by distance
-        this.closeInfos = _.sortBy(infos, (info)=>{
+        infos = _.sortBy(infos, (info)=>{
             let p2 = new L.LatLng(info.pos[0], info.pos[1]);
             info.distance = p1.distanceTo(p2).toFixed(0);
             return parseInt(info.distance);
         });
+
+        //filter for closest by 10km distance
+        this.closeInfos = _.filter(infos, (i)=>{
+          return (i.distance > 0) && (i.distance <= 10000); //less than 10km
+        })
+
       });
   }
 }

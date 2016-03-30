@@ -34,14 +34,7 @@ export class CloseInfo{
   }
 }
 
-//convert distance into visibility. if 0, hide the tile.
-export class DistanceToVisibilityValueConverter{
-  toView(value){
-    return (value == 0 ? "none" : "inherit");
-  }
-}
-
-@inject(I18N, HttpClient, Element)
+@inject(I18N)
 export class ToDistanceViewValueConverter{
 
   constructor(I18N){
