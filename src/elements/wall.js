@@ -8,7 +8,7 @@ export class Wall{
     this.element = Element;
   }
 
-  bind(){
+  attached(){
     this.initWall();
   }
 
@@ -17,14 +17,16 @@ export class Wall{
   }
 
   initWall(){
+    let containerSelector = '.wall-container';
+    let container = $(this.element).find(containerSelector);
+    var wall = new Masonry(container[0], {
+          // options
+          itemSelector: '.wall-item',
+          percentPosition: true,
+          transitionDuration: '0.2s'
+        });
     setTimeout(()=>{
-      let containerSelector = '.wall-container';
-      let container = $(this.element).find(containerSelector);
-      new Masonry(container[0], {
-            // options
-            itemSelector: '.wall-item',
-            percentPosition: true
-          });
+      wall.layout();
     }, 500);
   }
 }

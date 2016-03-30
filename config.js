@@ -157,9 +157,9 @@ System.config({
       "npm:lodash@4.6.1/lodash.js",
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js"
-    ]
+    ],
+    
   },
-
   map: {
     "-a": "npm:babel-core@5.8.38",
     "-a-runtime": "npm:babel-runtime@5.8.38",
