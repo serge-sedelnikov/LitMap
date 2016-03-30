@@ -1,6 +1,7 @@
 import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
+import ma from '../elements/mediaAdjuster'
 
 @inject(HttpClient)
 export class CloseInfo{
@@ -14,7 +15,7 @@ export class CloseInfo{
       html: true
     });
   }
-  
+
   bind(){
     //calculate and display distance
     this.distance = this.data.distance;
@@ -26,22 +27,9 @@ export class CloseInfo{
     })
     .then(t=>{
       let html = this.md.render(t);
-      html = this.adjustMedia(html);
+      html = ma.adjustMedia(html);
       this.html = html;
     });
-  }
-
-  //adjusts media in thumbnails of the markers.
-  adjustMedia(html){
-    //adjust images
-    let thumbs = $('<div>' + html + '</div>');
-    thumbs.find('img').addClass('img-responsive img-thumbnail');
-    //adjust video
-    thumbs.find('iframe').addClass('embed-responsive-item iframe-thumbnail');
-    //wrap it into responsive div
-    thumbs.find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
-
-    return thumbs.html();
   }
 }
 

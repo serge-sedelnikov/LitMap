@@ -3,6 +3,7 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import _ from 'lodash';
+import ma from '../elements/mediaAdjuster'
 
 @inject(I18N, HttpClient, Element)
 export class Details{
@@ -15,7 +16,7 @@ export class Details{
       this.data = '';
       var self = this;
     }
-    
+
     //on activate, get link to the param
     activate(params){
       this.link = params.data;
@@ -65,7 +66,7 @@ export class Details{
       })
       .then(data=>{
         let html = md.render(data);
-        html = this.adjustMedia(html);
+        html = ma.adjustMedia(html);
         this.data = html;
       });
     }
@@ -84,18 +85,5 @@ export class Details{
       mc.async = true;
       mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    }
-
-    //adjusts media in thumbnails of the markers.
-    adjustMedia(html){
-      //adjust images
-      let thumbs = $('<div>' + html + '</div>');
-      thumbs.find('img').addClass('img-responsive img-thumbnail');
-      //adjust video
-      thumbs.find('iframe').addClass('embed-responsive-item iframe-thumbnail');
-      //wrap it into responsive div
-      thumbs.find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
-
-      return thumbs.html();
     }
 }

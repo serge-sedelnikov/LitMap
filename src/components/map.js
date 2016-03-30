@@ -3,6 +3,7 @@ import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
+import ma from '../elements/mediaAdjuster'
 
 @inject(I18N, HttpClient, Element)
 export class Map{
@@ -41,7 +42,7 @@ export class Map{
         })
         .then(t=>{
           let html = md.render(t);
-          html = this.adjustMedia(html);
+          html = ma.adjustMedia(html);
           marker.bindPopup('<div class="marker-thumb">' + html + '</div><div class="text-right"><a href="/#/' + a.data + '" class="btn btn-default">' + self.i18bn.i18next.t('map.marker.readMore') + '</a></div>');
           markers.addLayer(marker);
         })
@@ -60,19 +61,6 @@ export class Map{
         //once file downloaded, fetch markers
         this.fetchMarkers(json, map)
       });
-  }
-
-  //adjusts media in thumbnails of the markers.
-  adjustMedia(html){
-    //adjust images
-    let thumbs = $('<div>' + html + '</div>');
-    thumbs.find('img').addClass('img-responsive img-thumbnail');
-    //adjust video
-    thumbs.find('iframe').addClass('embed-responsive-item iframe-thumbnail');
-    //wrap it into responsive div
-    thumbs.find('iframe').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
-
-    return thumbs.html();
   }
 
   //on attached to DOM
