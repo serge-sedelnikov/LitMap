@@ -3,6 +3,7 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import _ from 'lodash';
+import Bricks from 'bricks.js';
 
 @inject(I18N, HttpClient, Element)
 export class Home{
@@ -38,6 +39,16 @@ export class Home{
 
   //on DOM attached
   attached(){
+    const sizes = [
+            { columns: 4, gutter: 15 },
+          ];
+    let br = Bricks({
+          container: '#wall-container',
+          packed: 'data-info',
+          sizes: sizes
+        });
 
+    br.pack();
+    br.resize(true);
   }
 }

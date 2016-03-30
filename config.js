@@ -181,6 +181,7 @@ System.config({
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
+    "bricks.js": "npm:bricks.js@1.1.1",
     "chjj/marked": "github:chjj/marked@0.3.5",
     "core-js": "npm:core-js@2.2.1",
     "fetch": "github:github/fetch@0.10.1",
@@ -381,6 +382,9 @@ System.config({
     },
     "npm:bluebird@2.3.11": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:bricks.js@1.1.1": {
+      "knot.js": "npm:knot.js@1.0.1"
     },
     "npm:buffer@3.6.0": {
       "base64-js": "npm:base64-js@0.0.8",
