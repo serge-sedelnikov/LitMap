@@ -151,11 +151,18 @@ section{
   right: 0;
 }
 
+@media(max-width: 768px){
+  .wall-item{
+    width: 50%;
+  }
+}
+
 .bg-books{
   background-image: url('../../content/library.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
+  padding-top: 59px;
 }
 .bg-books h1,h2{
   color: white;
@@ -163,6 +170,12 @@ section{
 }
 .bg-books h1{
   font-weight: bold;
+}
+
+@media(max-width: 768px){
+  .bg-books h1{
+    font-size: 26px;
+  }
 }
 
 .logo-index{
