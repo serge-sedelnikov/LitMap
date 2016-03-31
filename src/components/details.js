@@ -4,6 +4,7 @@ import {inject, bindable} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import _ from 'lodash';
 import ma from '../elements/mediaAdjuster'
+import Remarkable from 'remarkable';
 
 @inject(I18N, HttpClient, Element)
 export class Details{

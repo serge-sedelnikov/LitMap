@@ -1,5 +1,6 @@
 import {bindable, inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator'
+import ms from 'masonry-layout';
 
 @inject(Element, EventAggregator)
 export class Wall{
@@ -20,14 +21,14 @@ export class Wall{
   initWall(){
     let containerSelector = '.wall-container';
     let container = $(this.element).find(containerSelector);
-    this.wall = new Masonry(container[0], {
+    this.wall = new ms(container[0], {
           // options
           itemSelector: '.wall-item',
           percentPosition: true,
-          transitionDuration: '0.2s'
+          transitionDuration: '0s'
         });
     setTimeout(()=>{
       this.wall.layout();
-    }, 1000);
+    }, 500);
   }
 }

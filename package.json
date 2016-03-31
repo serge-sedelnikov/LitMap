@@ -40,6 +40,7 @@
       "lodash": "npm:lodash@^4.6.1",
       "mammoth": "npm:mammoth@^0.3.33",
       "markdown": "npm:markdown@^0.5.0",
+      "masonry-layout": "npm:masonry-layout@^4.0.0",
       "remarkable": "npm:remarkable@^1.6.2",
       "stephen-hardy/DOCX.js": "github:stephen-hardy/DOCX.js@master",
       "suprb/Nested": "github:suprb/Nested@master",

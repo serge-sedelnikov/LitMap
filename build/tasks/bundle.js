@@ -64,7 +64,10 @@ var config = {
       includes: [
         'text',
         'fetch',
-        'lodash'
+        'lodash',
+        'masonry-layout',
+        'github:twbs/bootstrap@3.3.6',
+        'remarkable'
       ],
       options: {
         inject: true,

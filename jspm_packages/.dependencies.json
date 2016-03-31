@@ -285,94 +285,49 @@
     "buffer": "github:jspm/nodelibs-buffer@^0.1.0"
   },
   "github:stephen-hardy/DOCX.js@master": {},
-  "npm:path-is-absolute@1.0.0": {
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:argparse@1.0.7": {
-    "sprintf-js": "npm:sprintf-js@~1.0.2",
-    "util": "github:jspm/nodelibs-util@^0.1.0",
-    "path": "github:jspm/nodelibs-path@^0.1.0",
-    "fs": "github:jspm/nodelibs-fs@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:async@0.2.10": {
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:lop@0.3.0": {
-    "underscore": "npm:underscore@~1.4.4",
-    "option": "npm:option@~0.2.1",
-    "duck": "npm:duck@~0.1.11",
-    "util": "github:jspm/nodelibs-util@^0.1.0"
-  },
-  "npm:underscore@1.6.0": {},
-  "npm:sprintf-js@1.0.3": {},
-  "npm:option@0.2.3": {},
-  "npm:sax@1.1.6": {
-    "stream": "github:jspm/nodelibs-stream@^0.1.0",
-    "string_decoder": "github:jspm/nodelibs-string_decoder@^0.1.0",
-    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:duck@0.1.11": {
-    "underscore": "npm:underscore@~1.4.4",
-    "util": "github:jspm/nodelibs-util@^0.1.0",
-    "assert": "github:jspm/nodelibs-assert@^0.1.0"
-  },
-  "npm:jszip@2.5.0": {
-    "pako": "npm:pako@~0.2.5",
-    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:underscore@1.4.4": {},
-  "npm:mammoth@0.3.33": {
-    "bluebird": "npm:bluebird@~2.3.11",
-    "sax": "npm:sax@~1.1.1",
-    "underscore": "npm:underscore@~1.6.0",
-    "lop": "npm:lop@~0.3.0",
-    "async": "npm:async@~0.2.6",
-    "argparse": "npm:argparse@~1.0.3",
-    "jszip": "npm:jszip@~2.5.0",
-    "xmlbuilder": "npm:xmlbuilder@~2.6.4",
-    "path-is-absolute": "npm:path-is-absolute@^1.0.0",
-    "path": "github:jspm/nodelibs-path@^0.1.0",
-    "fs": "github:jspm/nodelibs-fs@^0.1.0",
-    "url": "github:jspm/nodelibs-url@^0.1.0",
-    "os": "github:jspm/nodelibs-os@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0",
-    "util": "github:jspm/nodelibs-util@^0.1.0",
-    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
-    "string_decoder": "github:jspm/nodelibs-string_decoder@^0.1.0",
-    "events": "github:jspm/nodelibs-events@^0.1.1",
-    "stream": "github:jspm/nodelibs-stream@^0.1.0",
-    "assert": "github:jspm/nodelibs-assert@^0.1.0"
-  },
-  "npm:xmlbuilder@2.6.5": {
-    "lodash": "npm:lodash@^3.5.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:pako@0.2.8": {
-    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:bluebird@2.3.11": {
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "github:jspm/nodelibs-string_decoder@0.1.0": {
-    "string_decoder": "npm:string_decoder@^0.10.31"
-  },
-  "npm:lodash@3.10.1": {
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "github:jspm/nodelibs-os@0.1.0": {
-    "os-browserify": "npm:os-browserify@^0.1.2"
-  },
-  "npm:os-browserify@0.1.2": {
-    "os": "github:jspm/nodelibs-os@^0.1.0"
-  },
   "github:kombai/freewall@1.0.5": {},
   "github:suprb/Nested@master": {},
-  "npm:bricks.js@1.1.1": {
-    "knot.js": "npm:knot.js@^1.0.1"
+  "npm:masonry-layout@4.0.0": {
+    "get-size": "npm:get-size@~2.0.2",
+    "outlayer": "npm:outlayer@~2.0.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
   },
-  "npm:knot.js@1.0.1": {}
+  "npm:get-size@2.0.2": {},
+  "npm:fizzy-ui-utils@2.0.1": {
+    "desandro-matches-selector": "npm:desandro-matches-selector@~2.0.0"
+  },
+  "npm:outlayer@2.0.1": {
+    "ev-emitter": "npm:ev-emitter@~1.0.0",
+    "get-size": "npm:get-size@~2.0.2",
+    "fizzy-ui-utils": "npm:fizzy-ui-utils@~2.0.0"
+  },
+  "npm:ev-emitter@1.0.2": {},
+  "npm:desandro-matches-selector@2.0.1": {},
+  "npm:remarkable@1.6.2": {
+    "argparse": "npm:argparse@~0.1.15",
+    "autolinker": "npm:autolinker@~0.15.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "path": "github:jspm/nodelibs-path@^0.1.0",
+    "systemjs-json": "github:systemjs/plugin-json@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "util": "github:jspm/nodelibs-util@^0.1.0"
+  },
+  "npm:argparse@0.1.16": {
+    "underscore": "npm:underscore@~1.7.0",
+    "underscore.string": "npm:underscore.string@~2.4.0",
+    "assert": "github:jspm/nodelibs-assert@^0.1.0",
+    "util": "github:jspm/nodelibs-util@^0.1.0",
+    "path": "github:jspm/nodelibs-path@^0.1.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "npm:underscore.string@2.4.0": {},
+  "npm:autolinker@0.15.3": {
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "child_process": "github:jspm/nodelibs-child_process@^0.1.0"
+  },
+  "npm:underscore@1.7.0": {}
 }

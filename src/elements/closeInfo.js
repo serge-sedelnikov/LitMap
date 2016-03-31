@@ -4,6 +4,7 @@ import {inject, bindable} from 'aurelia-framework';
 import ma from '../elements/mediaAdjuster'
 import {I18N} from 'aurelia-i18n';
 import {EventAggregator} from 'aurelia-event-aggregator'
+import Remarkable from 'remarkable';
 
 @inject(HttpClient, EventAggregator)
 export class CloseInfo{
