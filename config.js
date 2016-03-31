@@ -237,6 +237,25 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/sub.js",
       "npm:remarkable@1.6.2/lib/rules_inline/sup.js",
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
+    ],
+    "dist/app-build-elements.js": [
+      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/closeInfo.js",
+      "elements/mediaAdjuster.js",
+      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/navBar.js",
+      "elements/wall.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/wall.js"
+    ],
+    "dist/app-build-components.js": [
+      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
+      "components/details.js",
+      "components/detailsClose.html!github:systemjs/plugin-text@0.0.4.js",
+      "components/detailsClose.js",
+      "components/home.html!github:systemjs/plugin-text@0.0.4.js",
+      "components/home.js",
+      "components/map.html!github:systemjs/plugin-text@0.0.4.js",
+      "components/map.js"
     ]
   },
   map: {
