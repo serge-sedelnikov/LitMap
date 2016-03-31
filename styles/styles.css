@@ -184,3 +184,24 @@ section{
   left: 0;
   right: 0;
 }
+
+.bg-books{
+  background-image: url('../../content/library.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.logo-index{
+  height: 96px;
+  width: 96px;
+}
+.logo-container{
+  padding: 12px;
+  border-radius: 50%;
+  background: white;
+  width: 120px !important;
+  height: 120px !important;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -26,24 +26,43 @@
 
   <body aurelia-app="main">
 
-    <div class="section" style="width: 40%; height: calc(100vh-10px); margin-left: auto; margin-right: auto; margin-top: 10%">
-        <div class="spinner yellow"></div>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Brand" src="./content/logo2-bw.png" class="logo">
+          </a>
+        </div>
 
-      <!-- <blockquote>
-        Сентябрьский солнечный день,</br>
-        Собор над ленивой рекою,</br>
-        И мост из Тюмени в Тюмень,</br>
-        И бронзовый лист под ногою.</br>
-      </blockquote>
-      <div class="text-right">
-        <author >Ольга ДАНИЛОВА-ПУШКАРЬ, г. Тюмень</author>
-      </div> -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="JavaScript:void(0);"><i class="fa fa-fw fa-spinner fa-spin"></i>&nbsp;Загрузка...</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="container page-content">
+
+      <div class="section index-top bg-books">
+        <div class="text-center">
+          <div class="logo-container"><img class="logo-index" src="content/logo3.png"/></div>
+
+        </div>
+
+        <div class="text-center">
+          <h3>Литературная карта</h3>
+          <h5>города Тюмень</h5>
+        </div>
+
+          <!-- <div class="spinner yellow"></div> -->
+      </div>
     </div>
 
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script>
-       SystemJS.import('aurelia-bootstrapper');
+      //  SystemJS.import('aurelia-bootstrapper');
     </script>
   </body>
 </html>
