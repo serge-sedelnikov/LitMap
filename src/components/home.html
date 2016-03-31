@@ -1,0 +1,39 @@
+<template>
+
+  <require from="../elements/wall"></require>
+
+  <div class="page-content container">
+
+    <div class="section index-top bg-books">
+      <div class="text-center">
+        <div class="logo-container"><img class="logo-index" src="content/logo3.png"/></div>
+
+      </div>
+
+      <div class="text-center">
+        <h1>Литературная карта</h1>
+        <h2>города Тюмень</h2>
+      </div>
+
+      <div class="text-right">
+        <div class="thumb-small" >
+          <img src="content/coat_of_arms.png" style="margin-top: -22px;"/>
+        </div>
+        <div class="thumb-small" >
+          <img src="content/flag.png" style="margin-top: -17px; width: 50px; margin-left: -25px;"/>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h4 t="home.interestingThisWeek"></h4>
+
+      <wall infos.bind="infos"></wall>
+    </section>
+
+    <section>
+      <h4 t="home.nearMe"></h4>
+        <wall infos.bind="infos"></wall>
+    </section>
+  </div>
+</template>

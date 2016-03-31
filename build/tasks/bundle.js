@@ -16,16 +16,16 @@ var config = {
         minify: true
       }
     },
-    // "src/dist/app-build-components": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
-    //   includes: [
-    //     '[components/*.js]',
-    //     'components/*.html!text',
-    //   ],
-    //   options: {
-    //     inject: true,
-    //     minify: true
-    //   }
-    // },
+    "src/dist/app-build-components": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
+      includes: [
+        '[components/*.js]',
+        'components/*.html!text',
+      ],
+      options: {
+        inject: true,
+        minify: true
+      }
+    },
     "src/dist/app-build-elements": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
       includes: [
         '[elements/*.js]',
@@ -64,9 +64,10 @@ var config = {
       includes: [
         'text',
         'fetch',
-        'thomaspark/bootswatch/paper/bootstrap.min.css!text',
-        'markdown',
-        'lodash'
+        'lodash',
+        'masonry-layout',
+        'github:twbs/bootstrap@3.3.6',
+        'remarkable'
       ],
       options: {
         inject: true,

@@ -274,5 +274,60 @@
   "github:jspm/nodelibs-events@0.1.1": {
     "events": "npm:events@1.0.2"
   },
-  "npm:events@1.0.2": {}
+  "npm:events@1.0.2": {},
+  "npm:jszip@2.6.0": {
+    "pako": "npm:pako@~1.0.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "npm:pako@1.0.0": {
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0"
+  },
+  "github:stephen-hardy/DOCX.js@master": {},
+  "github:kombai/freewall@1.0.5": {},
+  "github:suprb/Nested@master": {},
+  "npm:masonry-layout@4.0.0": {
+    "get-size": "npm:get-size@~2.0.2",
+    "outlayer": "npm:outlayer@~2.0.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "npm:get-size@2.0.2": {},
+  "npm:fizzy-ui-utils@2.0.1": {
+    "desandro-matches-selector": "npm:desandro-matches-selector@~2.0.0"
+  },
+  "npm:outlayer@2.0.1": {
+    "ev-emitter": "npm:ev-emitter@~1.0.0",
+    "get-size": "npm:get-size@~2.0.2",
+    "fizzy-ui-utils": "npm:fizzy-ui-utils@~2.0.0"
+  },
+  "npm:ev-emitter@1.0.2": {},
+  "npm:desandro-matches-selector@2.0.1": {},
+  "npm:remarkable@1.6.2": {
+    "argparse": "npm:argparse@~0.1.15",
+    "autolinker": "npm:autolinker@~0.15.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "path": "github:jspm/nodelibs-path@^0.1.0",
+    "systemjs-json": "github:systemjs/plugin-json@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "util": "github:jspm/nodelibs-util@^0.1.0"
+  },
+  "npm:argparse@0.1.16": {
+    "underscore": "npm:underscore@~1.7.0",
+    "underscore.string": "npm:underscore.string@~2.4.0",
+    "assert": "github:jspm/nodelibs-assert@^0.1.0",
+    "util": "github:jspm/nodelibs-util@^0.1.0",
+    "path": "github:jspm/nodelibs-path@^0.1.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
+  },
+  "npm:underscore.string@2.4.0": {},
+  "npm:autolinker@0.15.3": {
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "child_process": "github:jspm/nodelibs-child_process@^0.1.0"
+  },
+  "npm:underscore@1.7.0": {}
 }

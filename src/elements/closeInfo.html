@@ -1,0 +1,17 @@
+<template>
+  <div>
+
+    <div class="close-info">
+      <span if.bind="distance" class="label label-default">${distance | toDistanceView}</span>
+
+      <div innerHTML.bind="html"></div>
+
+      <div class="text-right">
+        <a href="/#/${data.data}" class="btn btn-default" t="map.marker.readMore"></a>
+      </div>
+    </div>
+
+    <hr/>
+
+  </div>
+</template>
