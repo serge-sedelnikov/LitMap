@@ -191,3 +191,21 @@ section{
   margin-left: auto;
   margin-right: auto;
 }
+
+.thumb-small{
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #eee;
+  position: relative;
+  float: right;
+  bottom: 22px;
+  margin-right: 16px;
+}
+.thumb-small img{
+  width: 64px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px;
+}
