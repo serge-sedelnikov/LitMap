@@ -191,6 +191,13 @@ section{
   background-repeat: no-repeat;
   background-position: left center;
 }
+.bg-books h1,h2{
+  color: white;
+  text-transform: uppercase;
+}
+.bg-books h1{
+  font-weight: bold;
+}
 
 .logo-index{
   height: 96px;
