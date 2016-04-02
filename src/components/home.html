@@ -17,13 +17,12 @@
 
     <section>
       <h4 t="home.interestingThisWeek"></h4>
-
       <wall infos.bind="infos"></wall>
     </section>
 
-    <section>
+    <section if.bind="closestInfos.length">
       <h4 t="home.nearMe"></h4>
-        <wall infos.bind="infos"></wall>
+      <wall infos.bind="closestInfos"></wall>
     </section>
   </div>
 </template>

@@ -13,11 +13,20 @@ export class Home{
     this.i18n = I18N;
     this.element = Element;
     this.infos = [];
+    this.closestInfos = [];
   }
 
   //executes on activate
   activate(){
-    return this.fetchIndex();
+    let p1 = this.fetchIndex();
+    p1.then((infos)=>{
+      //get the most interesting this week
+      this.infos = infos;
+      //get closest to the user in 10 km.
+      return this.getClosestToMe(infos);
+    }).then(ci =>{
+      this.closestInfos = ci;
+    });
   }
 
   //fetching index file and show data on screen
@@ -29,10 +38,15 @@ export class Home{
         })
         .then(json=>{
             let infos = json;
-
-            //filter for closest by 10km distance
-            this.infos = infos;
-
+            return infos;
           });
+  }
+
+  //gets the closes to the current user
+  getClosestToMe(infos){
+    if(!navigator.geolocation)
+      return [];
+
+      return [];
   }
 }
