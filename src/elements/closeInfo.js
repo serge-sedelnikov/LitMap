@@ -9,8 +9,6 @@ import Remarkable from 'remarkable';
 @inject(HttpClient, EventAggregator, Element)
 export class CloseInfo{
 @bindable data; //details to display
-@bindable details; //parentData
-
 
   //constructor
   constructor(http, ea, Element){
@@ -25,10 +23,7 @@ export class CloseInfo{
 
   //once bindings applied
   bind(){
-    //calculate and display distance
-    if(this.data)
-      this.distance = this.data.distance;
-
+    console.log(this.data);
     //fetch the file with the given link from thumbs
     return this.http.fetch('data/thumbs/' +this.data.data + '.md')
       .then(response=>{

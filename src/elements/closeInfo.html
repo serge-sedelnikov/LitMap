@@ -4,7 +4,7 @@
     <div class="close-info">
 
       <!--distance if needed-->
-      <span if.bind="distance" class="label label-default">${distance | toDistanceView}</span>
+      <span if.bind="data.distance" class="label label-default">${data.distance | toDistanceView}</span>
 
       <!--raiting if needed-->
       <div if.bind="rating" id="ratingContainer${data.data}"></div>

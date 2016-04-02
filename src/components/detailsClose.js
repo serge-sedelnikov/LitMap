@@ -52,7 +52,7 @@ export class DetailsClose{
         //filter for closest by 10km distance
         this.closeInfos = _.filter(infos, (i)=>{
           return (i.distance > 0) && (i.distance <= 10000); //less than 10km
-        })
+        });
 
       });
   }
