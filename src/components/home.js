@@ -22,6 +22,7 @@ export class Home{
     p1.then((infos)=>{
       //get the most interesting this week
       this.infos = infos;
+
       //get closest to the user in 10 km.
       return this.getClosestToMe(infos);
     }).then(ci =>{
@@ -47,6 +48,41 @@ export class Home{
     if(!navigator.geolocation)
       return [];
 
-      return [];
+      var prom = new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position=>{
+                    var res = {
+                        Lat: 0,
+                        Lon: 0
+                    };
+                    res.Lat = position.coords.latitude;
+                    res.Lon = position.coords.longitude;
+                    resolve(res);
+                }, error => {
+                    resolve(null);
+                });
+            } else {
+                resolve(null);
+            }
+        })
+        .then(res => {
+          if(!res)
+            return [];
+          let p1 = new L.LatLng(res.Lat, res.Lon);
+
+          //calculate distence and show them ordered by distance
+          let sinfos = _.sortBy(infos, (info)=>{
+              let p2 = new L.LatLng(info.pos[0], info.pos[1]);
+              info.distance = p1.distanceTo(p2).toFixed(0);
+              return parseInt(info.distance);
+          });
+
+          //filter for closest by 10km distance
+          return _.filter(sinfos, (i)=>{
+              return (i.distance > 0) && (i.distance <= 100000); //less than 100km
+            });
+        });
+
+        return prom;
   }
 }

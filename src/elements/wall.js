@@ -8,27 +8,30 @@ export class Wall{
 
   constructor(Element, ea){
     this.element = Element;
+
+
   }
 
   attached(){
     this.initWall();
   }
 
-  infosChanged(){
-    this.initWall();
-  }
+  // infosChanged(){
+  //   this.initWall();
+  // }
 
   initWall(){
-    let containerSelector = '.wall-container';
-    let container = $(this.element).find(containerSelector);
-    this.wall = new ms(container[0], {
-          // options
-          itemSelector: '.wall-item',
-          percentPosition: true,
-          transitionDuration: '0s'
-        });
+
     setTimeout(()=>{
+      let containerSelector = '.wall-container';
+      let container = $(this.element).find(containerSelector);
+      this.wall = new ms(container[0], {
+            // options
+            itemSelector: '.wall-item',
+            percentPosition: true,
+            transitionDuration: '0s'
+          });
       this.wall.layout();
-    }, 500);
+    }, 300);
   }
 }
