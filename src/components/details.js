@@ -74,18 +74,13 @@ export class Details{
 
     //initialize comments section
     initializeComments(link){
-      window.cackle_widget = [];
+      window.cackle_widget =  [];
       window.cackle_widget.push(
         {
           widget: 'Comment',
           id: 43259,
           channel: link
         });
-
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+        Cackle.bootstrap(true);
     }
 }

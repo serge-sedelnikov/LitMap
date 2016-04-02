@@ -2,10 +2,14 @@
   <div>
 
     <div class="close-info">
+
+      <!--distance if needed-->
       <span if.bind="distance" class="label label-default">${distance | toDistanceView}</span>
 
-      <div innerHTML.bind="html"></div>
+      <!--raiting if needed-->
+      <div if.bind="rating" id="ratingContainer${data.data}"></div>
 
+      <div innerHTML.bind="html"></div>
       <div class="text-right">
         <a href="/#/${data.data}" class="btn btn-default" t="map.marker.readMore"></a>
       </div>

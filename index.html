@@ -67,6 +67,16 @@
     <script src="config.js"></script>
     <script>
        SystemJS.import('aurelia-bootstrapper');
+
+       <!--init comments-->
+       cackle_widget = window.cackle_widget || [];
+       (function() {
+                var mc = document.createElement('script');
+                mc.type = 'text/javascript';
+                mc.async = false;
+                mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+              })();
     </script>
   </body>
 </html>

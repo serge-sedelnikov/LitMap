@@ -6,20 +6,24 @@ import {I18N} from 'aurelia-i18n';
 import {EventAggregator} from 'aurelia-event-aggregator'
 import Remarkable from 'remarkable';
 
-@inject(HttpClient, EventAggregator)
+@inject(HttpClient, EventAggregator, Element)
 export class CloseInfo{
 @bindable data; //details to display
 @bindable details; //parentData
 
-  constructor(http, ea){
+
+  //constructor
+  constructor(http, ea, Element){
     this.http = http;
     //init markdown renderer
     this.md = new Remarkable({
       html: true
     });
     this.ea = ea;
+    this.element = Element;
   }
 
+  //once bindings applied
   bind(){
     //calculate and display distance
     if(this.data)
@@ -36,12 +40,10 @@ export class CloseInfo{
         this.html = html;
       });
   }
-
-  attached(){
-    this.ea.publish('close-info-attached');
-  }
 }
 
+
+//converts distance to text
 @inject(I18N)
 export class ToDistanceViewValueConverter{
 
