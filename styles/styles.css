@@ -207,3 +207,12 @@ section{
   top: 50%;
   margin-left: -32px;
 }
+
+.footer{
+    height: 60px;
+    background-color: #444;
+    margin-top: 60px;
+    color: white;
+    line-height: 60px;
+    border-bottom: 4px solid #F2D00C;
+}

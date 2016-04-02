@@ -21,17 +21,8 @@ export class CloseInfo{
     this.showDistance = true;
   }
 
-  showDistanceChanged(){
-    console.log('chaged to ' + this.showDistance);
-  }
-
-  attached(){
-    console.log('attached as ' + this.showDistance);
-  }
-
   //once bindings applied
   bind(){
-    console.log(this.showDistance);
     //fetch the file with the given link from thumbs
     return this.http.fetch('data/thumbs/' +this.data.data + '.md')
       .then(response=>{
