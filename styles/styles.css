@@ -3,7 +3,7 @@ body {
   margin:0;
   padding:0;
   background-color: #F5F5F5 !important;
-  font-size: 20px !important;
+  font-size: 15px !important;
   color: #5f5858 !important;
 }
 
@@ -59,7 +59,7 @@ author{
 }
 
 .page-content{
-  margin-top: 64px;
+  margin-top: 64px !important;
 }
 
 #map
@@ -68,10 +68,6 @@ author{
   top: 64px;
   bottom: 0;
   width: 100%
-}
-
-.navbar-nav > li {
-  text-transform: uppercase;
 }
 
 .logo{
@@ -86,10 +82,6 @@ author{
 .marker-thumb h1{
   font-size: 22px !important;
   font-weight: bold;
-}
-
-.img-responsive{
-  width: 100%;
 }
 
 .iframe-thumbnail{
@@ -108,6 +100,10 @@ author{
 section{
   margin-top: 50px;
 }
+.section.no-shadow{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 .section{
   margin-top: 10px;
@@ -116,12 +112,16 @@ section{
   width: 100%;
   padding: 15px;
   border: none;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
 }
 
 .section h2{
   margin-top: 0;
+  text-shadow: 0 0 10px rgba(0,0,0,.6);
+}
+.section h1{
+  text-shadow: 0 0 10px rgba(0,0,0,.6);
 }
 
 .section-fixed{
@@ -158,7 +158,7 @@ section{
 }
 
 .bg-books{
-  background-image: url('../../content/library.jpg');
+  background-image: url('../../content/wide_detail_picture.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
