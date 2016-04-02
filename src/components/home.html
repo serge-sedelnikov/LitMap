@@ -16,13 +16,14 @@
   <div class="page-content container">
 
     <section>
-      <h4 t="home.interestingThisWeek"></h4>
-      <wall infos.bind="infos"></wall>
+      <h4><i class="fa fa-star"></i>&nbsp;<span t="home.interestingThisWeek"></span></h4>
+      <wall show-distance.bind="false" infos.bind="infos"></wall>
     </section>
 
     <section if.bind="closestInfos.length">
-      <h4 t="home.nearMe"></h4>
+      <h4><i class="fa fa-map-marker"></i>&nbsp;<span t="home.nearMe"></span></h4>
       <wall infos.bind="closestInfos"></wall>
     </section>
+    
   </div>
 </template>

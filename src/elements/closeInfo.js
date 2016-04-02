@@ -3,27 +3,35 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import ma from '../elements/mediaAdjuster'
 import {I18N} from 'aurelia-i18n';
-import {EventAggregator} from 'aurelia-event-aggregator'
 import Remarkable from 'remarkable';
 
-@inject(HttpClient, EventAggregator, Element)
+@inject(HttpClient, Element)
 export class CloseInfo{
 @bindable data; //details to display
+@bindable showDistance;
 
   //constructor
-  constructor(http, ea, Element){
+  constructor(http, Element){
     this.http = http;
     //init markdown renderer
     this.md = new Remarkable({
       html: true
     });
-    this.ea = ea;
     this.element = Element;
+    this.showDistance = true;
+  }
+
+  showDistanceChanged(){
+    console.log('chaged to ' + this.showDistance);
+  }
+
+  attached(){
+    console.log('attached as ' + this.showDistance);
   }
 
   //once bindings applied
   bind(){
-    console.log(this.data);
+    console.log(this.showDistance);
     //fetch the file with the given link from thumbs
     return this.http.fetch('data/thumbs/' +this.data.data + '.md')
       .then(response=>{

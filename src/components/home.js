@@ -78,9 +78,11 @@ export class Home{
           });
 
           //filter for closest by 10km distance
-          return _.filter(sinfos, (i)=>{
-              return (i.distance > 0) && (i.distance <= 100000); //less than 100km
-            });
+          let filtered = _.filter(sinfos, (i)=>{
+                return (i.distance > 0) && (i.distance <= (5000 * 1000)); //less than 5000km
+              });
+          filtered = _.take(filtered, 3); //3 nearest interesting news
+          return filtered;
         });
 
         return prom;
