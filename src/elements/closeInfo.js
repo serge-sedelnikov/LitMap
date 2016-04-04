@@ -19,6 +19,7 @@ export class CloseInfo{
     });
     this.element = Element;
     this.showDistance = true;
+    this.html = "";
   }
 
   //once bindings applied

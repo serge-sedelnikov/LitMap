@@ -65,7 +65,6 @@ var config = {
         'text',
         'fetch',
         'lodash',
-        'masonry-layout',
         'github:twbs/bootstrap@3.3.6',
         'remarkable'
       ],
