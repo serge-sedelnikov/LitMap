@@ -12,21 +12,15 @@
     "data": "tumen_drama_theatre"
   },
   {
-    "pos": [57.134196, 65.559273],
-    "color": "#D50000",
-    "marker": "theatre",
-    "data": "tumen_drama_theatre"
-  },
-  {
-    "pos": [57.244196, 65.539873],
-    "color": "#E91E63",
-    "marker": "star",
-    "data": "clarcson"
-  },
-  {
-    "pos": [57.244296, 65.539973],
-    "color": "#E91E63",
+    "pos": [57.155458, 65.545771],
+    "color": "#FFB300",
     "marker": "",
-    "data": "clarcson"
+    "data": "lit_bulvar"
+  },
+  {
+    "pos": [57.142029, 65.560337],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "graffiti_chuvak"
   }
 ]

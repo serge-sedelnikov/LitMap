@@ -49,7 +49,7 @@ var config = {
         'aurelia-router',
         'aurelia-history-browser',
          'aurelia-logging-console',
-        'aurelia-event-aggregator',
+        //'aurelia-event-aggregator',
         'aurelia-loader-default',
         'aurelia-loader',
         'aurelia-i18n',
