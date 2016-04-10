@@ -22,5 +22,17 @@
     "color": "#FFB300",
     "marker": "",
     "data": "graffiti_chuvak"
+  },
+  {
+    "pos": [57.148904, 65.545044],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "shoko_sculpture"
+  },
+  {
+    "pos": [57.151746, 65.542320],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "post_man_sculpture"
   }
 ]
