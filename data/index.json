@@ -34,5 +34,17 @@
     "color": "#FFB300",
     "marker": "",
     "data": "post_man_sculpture"
+  },
+  {
+    "pos": [57.148621, 65.525509],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "motocycle"
+  },
+  {
+    "pos": [57.153898, 65.536645],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "murkinih_zabav"
   }
 ]
