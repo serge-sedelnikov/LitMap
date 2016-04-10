@@ -1,0 +1,56 @@
+[
+  {
+    "pos": [57.153525, 65.514422],
+    "color": "#9C27B0",
+    "marker": "star",
+    "data": "krapivin_vladislav_petrovich"
+  },
+  {
+    "pos": [57.144196, 65.559873],
+    "color": "#D50000",
+    "marker": "theatre",
+    "data": "tumen_drama_theatre"
+  },
+  {
+    "pos": [57.155458, 65.545771],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "lit_bulvar"
+  },
+  {
+    "pos": [57.142029, 65.560337],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "graffiti_chuvak"
+  },
+  {
+    "pos": [57.148904, 65.545044],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "shoko_sculpture"
+  },
+  {
+    "pos": [57.151746, 65.542320],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "post_man_sculpture"
+  },
+  {
+    "pos": [57.148621, 65.525509],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "motocycle"
+  },
+  {
+    "pos": [57.153898, 65.536645],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "murkinih_zabav"
+  },
+  {
+    "pos": [57.150867, 65.538164],
+    "color": "#FFB300",
+    "marker": "",
+    "data": "cvetnoy_bulvar"
+  }
+]
