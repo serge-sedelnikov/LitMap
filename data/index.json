@@ -44,7 +44,7 @@
   {
     "pos": [57.153898, 65.536645],
     "color": "#FFB300",
-    "marker": "",
+    "marker": "fast-food",
     "data": "murkinih_zabav"
   },
   {
@@ -52,5 +52,11 @@
     "color": "#FFB300",
     "marker": "",
     "data": "cvetnoy_bulvar"
+  },
+  {
+    "pos": [57.223819, 65.478517],
+    "color": "#F21155",
+    "marker": "swimming",
+    "data": "goryachie_istochniki"
   }
 ]
