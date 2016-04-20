@@ -1,10 +1,10 @@
 <template>
   <require from="../elements/closeInfo"></require>
-  
+
   <div class="wall-container" id="wall-container">
     <div class="wall-item" repeat.for="i of infos">
         <div class="section">
-          <close-info class="info-tile" data.bind="i"></close-info>
+          <close-info show-distance.bind="showDistance" class="info-tile" data.bind="i"></close-info>
         </div>
     </div>
   </div>

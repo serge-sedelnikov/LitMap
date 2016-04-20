@@ -3,7 +3,7 @@ body {
   margin:0;
   padding:0;
   background-color: #F5F5F5 !important;
-  font-size: 20px !important;
+  font-size: 15px !important;
   color: #5f5858 !important;
 }
 
@@ -59,7 +59,7 @@ author{
 }
 
 .page-content{
-  margin-top: 64px;
+  margin-top: 64px !important;
 }
 
 #map
@@ -68,10 +68,6 @@ author{
   top: 64px;
   bottom: 0;
   width: 100%
-}
-
-.navbar-nav > li {
-  text-transform: uppercase;
 }
 
 .logo{
@@ -86,10 +82,6 @@ author{
 .marker-thumb h1{
   font-size: 22px !important;
   font-weight: bold;
-}
-
-.img-responsive{
-  width: 100%;
 }
 
 .iframe-thumbnail{
@@ -108,20 +100,28 @@ author{
 section{
   margin-top: 50px;
 }
+.section.no-shadow{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 .section{
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 3px;
   background-color: white;
   width: 100%;
   padding: 15px;
   border: none;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
 }
 
 .section h2{
   margin-top: 0;
+  text-shadow: 0 0 10px rgba(0,0,0,.6);
+}
+.section h1{
+  text-shadow: 0 0 10px rgba(0,0,0,.6);
 }
 
 .section-fixed{
@@ -136,29 +136,8 @@ section{
   min-height: 400px;
 }
 
-.wall-container{
-  margin-left: -5px;
-  margin-right: -5px;
-  position: relative;
-}
-.wall-item{
-  width: 25%;
-  padding-bottom: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-@media(max-width: 768px){
-  .wall-item{
-    width: 50%;
-  }
-}
-
 .bg-books{
-  background-image: url('../../content/library.jpg');
+  background-image: url('../../content/wide_detail_picture.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
@@ -208,4 +187,13 @@ section{
   left: 50%;
   top: 50%;
   margin-left: -32px;
+}
+
+.footer{
+    height: 60px;
+    background-color: #444;
+    margin-top: 60px;
+    color: white;
+    line-height: 60px;
+    border-bottom: 4px solid #F2D00C;
 }

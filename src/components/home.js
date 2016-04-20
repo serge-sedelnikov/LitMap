@@ -13,11 +13,21 @@ export class Home{
     this.i18n = I18N;
     this.element = Element;
     this.infos = [];
+    this.closestInfos = [];
   }
 
   //executes on activate
   activate(){
-    return this.fetchIndex();
+    let p1 = this.fetchIndex();
+    p1.then((infos)=>{
+      //get the most interesting this week
+      this.infos = infos;
+
+      //get closest to the user in 10 km.
+      return this.getClosestToMe(infos);
+    }).then(ci =>{
+      this.closestInfos = ci;
+    });
   }
 
   //fetching index file and show data on screen
@@ -29,10 +39,52 @@ export class Home{
         })
         .then(json=>{
             let infos = json;
-
-            //filter for closest by 10km distance
-            this.infos = infos;
-
+            return infos;
           });
+  }
+
+  //gets the closes to the current user
+  getClosestToMe(infos){
+    if(!navigator.geolocation)
+      return [];
+
+      var prom = new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position=>{
+                    var res = {
+                        Lat: 0,
+                        Lon: 0
+                    };
+                    res.Lat = position.coords.latitude;
+                    res.Lon = position.coords.longitude;
+                    resolve(res);
+                }, error => {
+                    resolve(null);
+                });
+            } else {
+                resolve(null);
+            }
+        })
+        .then(res => {
+          if(!res)
+            return [];
+          let p1 = new L.LatLng(res.Lat, res.Lon);
+
+          //calculate distence and show them ordered by distance
+          let sinfos = _.sortBy(infos, (info)=>{
+              let p2 = new L.LatLng(info.pos[0], info.pos[1]);
+              info.distance = p1.distanceTo(p2).toFixed(0);
+              return parseInt(info.distance);
+          });
+
+          //filter for closest by 10km distance
+          let filtered = _.filter(sinfos, (i)=>{
+                return (i.distance > 0) && (i.distance <= (5000 * 1000)); //less than 5000km
+              });
+          filtered = _.take(filtered, 3); //3 nearest interesting news
+          return filtered;
+        });
+
+        return prom;
   }
 }

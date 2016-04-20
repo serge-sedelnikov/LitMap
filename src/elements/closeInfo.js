@@ -3,28 +3,27 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {inject, bindable} from 'aurelia-framework';
 import ma from '../elements/mediaAdjuster'
 import {I18N} from 'aurelia-i18n';
-import {EventAggregator} from 'aurelia-event-aggregator'
 import Remarkable from 'remarkable';
 
-@inject(HttpClient, EventAggregator)
+@inject(HttpClient, Element)
 export class CloseInfo{
 @bindable data; //details to display
-@bindable details; //parentData
+@bindable showDistance;
 
-  constructor(http, ea){
+  //constructor
+  constructor(http, Element){
     this.http = http;
     //init markdown renderer
     this.md = new Remarkable({
       html: true
     });
-    this.ea = ea;
+    this.element = Element;
+    this.showDistance = true;
+    this.html = "";
   }
 
+  //once bindings applied
   bind(){
-    //calculate and display distance
-    if(this.data)
-      this.distance = this.data.distance;
-
     //fetch the file with the given link from thumbs
     return this.http.fetch('data/thumbs/' +this.data.data + '.md')
       .then(response=>{
@@ -36,12 +35,10 @@ export class CloseInfo{
         this.html = html;
       });
   }
-
-  attached(){
-    this.ea.publish('close-info-attached');
-  }
 }
 
+
+//converts distance to text
 @inject(I18N)
 export class ToDistanceViewValueConverter{
 

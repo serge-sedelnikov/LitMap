@@ -49,7 +49,7 @@ var config = {
         'aurelia-router',
         'aurelia-history-browser',
          'aurelia-logging-console',
-        'aurelia-event-aggregator',
+        //'aurelia-event-aggregator',
         'aurelia-loader-default',
         'aurelia-loader',
         'aurelia-i18n',
@@ -65,7 +65,6 @@ var config = {
         'text',
         'fetch',
         'lodash',
-        'masonry-layout',
         'github:twbs/bootstrap@3.3.6',
         'remarkable'
       ],

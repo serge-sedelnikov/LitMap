@@ -27,8 +27,7 @@ export class Map{
                 'marker-symbol': a.marker,
                 'marker-color': a.color,
                 'marker-size': 'large'
-              }),
-            title: 'index'
+              })
         });
 
         //init markdown renderer

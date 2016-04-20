@@ -155,25 +155,12 @@ System.config({
       "npm:base64-js@0.0.8/lib/b64.js",
       "npm:buffer@3.6.0.js",
       "npm:buffer@3.6.0/index.js",
-      "npm:desandro-matches-selector@2.0.1.js",
-      "npm:desandro-matches-selector@2.0.1/matches-selector.js",
-      "npm:ev-emitter@1.0.2.js",
-      "npm:ev-emitter@1.0.2/ev-emitter.js",
-      "npm:fizzy-ui-utils@2.0.1.js",
-      "npm:fizzy-ui-utils@2.0.1/utils.js",
-      "npm:get-size@2.0.2.js",
-      "npm:get-size@2.0.2/get-size.js",
       "npm:ieee754@1.1.6.js",
       "npm:ieee754@1.1.6/index.js",
       "npm:isarray@1.0.0.js",
       "npm:isarray@1.0.0/index.js",
       "npm:lodash@4.6.1.js",
       "npm:lodash@4.6.1/lodash.js",
-      "npm:masonry-layout@4.0.0.js",
-      "npm:masonry-layout@4.0.0/masonry.js",
-      "npm:outlayer@2.0.1.js",
-      "npm:outlayer@2.0.1/item.js",
-      "npm:outlayer@2.0.1/outlayer.js",
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js",
       "npm:remarkable@1.6.2.js",
@@ -238,15 +225,6 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/sup.js",
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
     ],
-    "dist/app-build-elements.js": [
-      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/closeInfo.js",
-      "elements/mediaAdjuster.js",
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/navBar.js",
-      "elements/wall.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/wall.js"
-    ],
     "dist/app-build-components.js": [
       "components/details.html!github:systemjs/plugin-text@0.0.4.js",
       "components/details.js",
@@ -256,6 +234,17 @@ System.config({
       "components/home.js",
       "components/map.html!github:systemjs/plugin-text@0.0.4.js",
       "components/map.js"
+    ],
+    "dist/app-build-elements.js": [
+      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/closeInfo.js",
+      "elements/footer.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/footer.js",
+      "elements/mediaAdjuster.js",
+      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/navBar.js",
+      "elements/wall.html!github:systemjs/plugin-text@0.0.4.js",
+      "elements/wall.js"
     ]
   },
 
