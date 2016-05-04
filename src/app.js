@@ -16,7 +16,9 @@ export class App {
     config.map([
       { route: ['','home'], name: 'home', moduleId: './components/home', nav: true, title:this.i18n.i18next.t('app.homeNav') },
       { route: ['map'], name: 'map', moduleId: './components/map', nav: true, title:this.i18n.i18next.t('app.mapNav') },
-      { route: [':data'], name: 'details', moduleId: './components/details', nav: false, title:this.i18n.i18next.t('app.details') }
+      { route: [':data'], name: 'details', moduleId: './components/details', nav: false, title:this.i18n.i18next.t('app.details') },
+
+      { route: ['adm'], name: 'admin', moduleId: './components/admin', nav: true, title:this.i18n.i18next.t('app.admin') }
     ]);
 
     this.router = router;
