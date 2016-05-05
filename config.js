@@ -220,12 +220,12 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/sup.js",
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
     ],
-    "dist/app-build.js": [
+    "dist/app-build-176ef4148e.js": [
       "app.html!github:systemjs/plugin-text@0.0.4.js",
       "app.js",
       "main.js"
     ],
-    "dist/app-build-elements.js": [
+    "dist/app-build-elements-e69bd8e68b.js": [
       "elements/adminMarkerInfo.html!github:systemjs/plugin-text@0.0.4.js",
       "elements/adminMarkerInfo.js",
       "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
@@ -238,7 +238,7 @@ System.config({
       "elements/wall.html!github:systemjs/plugin-text@0.0.4.js",
       "elements/wall.js"
     ],
-    "dist/app-build-components.js": [
+    "dist/app-build-components-56ee66cddf.js": [
       "components/admin.html!github:systemjs/plugin-text@0.0.4.js",
       "components/admin.js",
       "components/details.html!github:systemjs/plugin-text@0.0.4.js",
