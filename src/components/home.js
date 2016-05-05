@@ -21,7 +21,8 @@ export class Home{
     let p1 = this.fetchIndex();
     p1.then((infos)=>{
       //get the most interesting this week
-      this.infos = infos;
+      //meaning get last 8 articles
+      this.infos = _.reverse(_.takeRight(infos, 8));
 
       //get closest to the user in 10 km.
       return this.getClosestToMe(infos);
@@ -81,7 +82,7 @@ export class Home{
           let filtered = _.filter(sinfos, (i)=>{
                 return (i.distance > 0) && (i.distance <= (5000 * 1000)); //less than 5000km
               });
-          filtered = _.take(filtered, 3); //3 nearest interesting news
+          filtered = _.take(filtered, 4); //4 nearest interesting news
           return filtered;
         });
 

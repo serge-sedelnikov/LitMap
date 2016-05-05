@@ -1,0 +1,18 @@
+<template>
+  <require from="../elements/adminMarkerInfo"></require>
+
+  <div class="page-content container">
+    <section>
+        <h4 t="admin.mapPoints"></h4>
+
+        <div class="row text-center">
+            <admin-marker-info repeat.for="m of markers" item.bind="m"></admin-marker-info>
+            <div class="section section-fixed section-fixed-height float" style="margin-left: 3px; margin-right: 3px;"></div>
+        </div>
+
+    </section>
+
+
+  </div>
+
+</template>

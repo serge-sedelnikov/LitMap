@@ -13,7 +13,8 @@ var config = {
       ],
       options: {
         inject: true,
-        minify: true
+        minify: true,
+        rev: true
       }
     },
     "src/dist/app-build-components": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
@@ -23,7 +24,8 @@ var config = {
       ],
       options: {
         inject: true,
-        minify: true
+        minify: true,
+        rev: true
       }
     },
     "src/dist/app-build-elements": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.
@@ -33,7 +35,8 @@ var config = {
       ],
       options: {
         inject: true,
-        minify: true
+        minify: true,
+        rev: true
       }
     },
     "src/dist/vendor-aurelia": {           // bundle name/path. Must be within `baseURL`. Final path is: `baseURL/dist/app-build.js`.

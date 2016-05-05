@@ -1,3 +1,7 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
 
 body {
   margin:0;
@@ -5,6 +9,8 @@ body {
   background-color: #F5F5F5 !important;
   font-size: 15px !important;
   color: #5f5858 !important;
+  height: 100%;
+  margin-bottom: 65px;
 }
 
 blockquote {
@@ -128,6 +134,10 @@ section{
   width: 300px;
 }
 
+.section-fixed-height{
+  height: 300px;
+}
+
 .info-tile:last-child hr{
   display: none;
 }
@@ -196,4 +206,17 @@ section{
     color: white;
     line-height: 60px;
     border-bottom: 4px solid #F2D00C;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.float{
+  float: left;
+}
+
+.section.yellow{
+  background-color: #F2D00C !important;
+  position: relative;
 }
