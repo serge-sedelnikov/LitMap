@@ -201,3 +201,7 @@ section{
     line-height: 60px;
     border-bottom: 4px solid #F2D00C;
 }
+
+.float{
+  float: left;
+}

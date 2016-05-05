@@ -5,8 +5,9 @@
     <section>
         <h4 t="admin.mapPoints"></h4>
 
-        <admin-marker-info></admin-marker-info>
-
+        <div class="row text-center">
+            <admin-marker-info repeat.for="m of markers" item.bind="m"></admin-marker-info>
+        </div>
 
     </section>
 
