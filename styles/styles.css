@@ -205,3 +205,8 @@ section{
 .float{
   float: left;
 }
+
+.section.yellow{
+  background-color: #F2D00C !important;
+  position: relative;
+}
