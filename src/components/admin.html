@@ -3,11 +3,23 @@
 
   <div class="page-content container">
     <section>
-        <h4 t="admin.mapPoints"></h4>
+        <h4>
+          <i class="fa fa-map-marker"></i>&nbsp;<span t="admin.mapPoints"></span>
+        </h4>
 
         <div class="row text-center">
-            <admin-marker-info repeat.for="m of markers" item.bind="m"></admin-marker-info>
-            <div class="section section-fixed section-fixed-height float" style="margin-left: 3px; margin-right: 3px;"></div>
+          <div class="col-lg-12">
+              <div class="section section-fixed float text-center" style="margin-left: 8px; margin-right: 8px; min-height: 300px;">
+                <div style="margin-top: 86px;">
+                  <div t="admin.addMarker"></div>
+                  <a href="JavaScript:void(0);" click.delegate="addMarker()" class="btn btn-default">
+                    <i class="fa fa-plus"></i>&nbsp;<span t="admin.item.add"></span>
+                  </a>
+                </div>
+              </div>
+              <admin-marker-info  repeat.for="m of markers" item.bind="m" index.bind="$index"></admin-marker-info>
+          </div>
+          </div>
         </div>
 
     </section>

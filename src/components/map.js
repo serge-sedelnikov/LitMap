@@ -45,7 +45,7 @@ export class Map{
           html = ma.adjustMedia(html);
           marker.bindPopup('<div class="marker-thumb">' + html + '</div><div class="text-right"><a href="/#/' + a.data + '" class="btn btn-default">' + self.i18bn.i18next.t('map.marker.readMore') + '</a></div>');
           markers.addLayer(marker);
-        })
+        });
     });
 
     map.addLayer(markers);
@@ -65,10 +65,6 @@ export class Map{
 
   //on attached to DOM
   attached(){
-
-    //initialize map access
-    L.mapbox.accessToken = 'pk.eyJ1Ijoic2VyZ2V5c2VkZWxuaWtvdiIsImEiOiJjaW05NzZucDEwMDBnd2RtOGo0N3U4YTJ4In0.BnhUwye9rhjh9z2124wkQA';
-
     self.map = L.mapbox
         .map('map', 'mapbox.streets')
         .setView([57.15000, 65.53333], 11);
