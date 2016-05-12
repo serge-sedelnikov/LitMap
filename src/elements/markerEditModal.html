@@ -1,17 +1,24 @@
 <template>
   <div class="modal fade" ref="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Modal title</h4>
+          <h4 class="modal-title" t="admin.edit.title"></h4>
         </div>
         <div class="modal-body">
-          <p>One fine body&hellip;</p>
+
+          <div class="row">
+            <div class="col-md-4">
+                <label t="admin.edit.color" for="colorEdit"></label>
+                <input type="color" value.bind="item.color" class="form-control" css="color: ${item.color};"/>
+            </div>
+          </div>
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" t="admin.edit.cancel"></button>
+          <button type="button" class="btn btn-primary" t="admin.edit.save"></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

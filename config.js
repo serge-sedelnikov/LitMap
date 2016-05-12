@@ -221,6 +221,7 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
     ]
   },
+
   map: {
     "-a": "npm:babel-core@5.8.38",
     "-a-runtime": "npm:babel-runtime@5.8.38",
@@ -252,6 +253,7 @@ System.config({
     "lodash": "npm:lodash@4.6.1",
     "markdown": "npm:markdown@0.5.0",
     "masonry-layout": "npm:masonry-layout@4.0.0",
+    "mjolnic/bootstrap-colorpicker": "github:mjolnic/bootstrap-colorpicker@2.3.3",
     "remarkable": "npm:remarkable@1.6.2",
     "stephen-hardy/DOCX.js": "github:stephen-hardy/DOCX.js@master",
     "suprb/Nested": "github:suprb/Nested@master",
