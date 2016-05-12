@@ -1,5 +1,6 @@
 <template>
   <require from="../elements/adminMarkerInfo"></require>
+  <require from="../elements/markerEditModal"></require>
 
   <div class="page-content container">
     <section>
@@ -24,7 +25,8 @@
 
     </section>
 
-    
+    <!--modal dialog for editing marker-->
+    <marker-edit-modal ref="editModal" item.bind="currentMarker"></marker-edit-modal>
 
   </div>
 

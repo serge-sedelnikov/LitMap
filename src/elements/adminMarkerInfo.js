@@ -3,15 +3,17 @@ import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import ma from '../elements/mediaAdjuster'
 import Remarkable from 'remarkable';
+import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject (Element, HttpClient)
+@inject (Element, HttpClient, EventAggregator)
 export class AdminMarkerInfo{
   @bindable item;
   @bindable index;
 
-  constructor(Element, HttpClient){
+  constructor(Element, HttpClient, EventAggregator){
       this.element = Element;
       this.http = HttpClient;
+      this.ea = EventAggregator;
   }
 
   //adds marker to the mini map
@@ -86,6 +88,7 @@ export class AdminMarkerInfo{
 
   //trigger to marker edit
   editMarker(){
-
+    //pass message to the parent to edit the marker
+    this.ea.publish('admin-marker-edit', this.item);
   }
 }

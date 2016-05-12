@@ -1,22 +1,37 @@
 import {inject} from "aurelia-framework";
 import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
+import {EventAggregator} from "aurelia-event-aggregator";
+import $ from "jquery";
 
-@inject(HttpClient)
+@inject(HttpClient, EventAggregator)
 export class Admin{
 
-  constructor(http){
+  constructor(http, ea){
     this.http = http;
+    this.ea = ea;
   }
 
   //executes on activate
   activate(){
+
+    //subscribe for events
+    this.subscription = this.ea.subscribe('admin-marker-edit', (item)=>{
+      this.editMarker(item);
+    });
+
     let p1 = this.fetchIndex();
-    p1.then((infos)=>{
+    return p1.then((infos)=>{
       //get the most interesting this week
       //meaning get last 8 articles
       this.markers = infos;
     });
+  }
+
+  //on page detached
+  detached(){
+    //unsubscribe from event aggregators
+    this.subscription.dispose();
   }
 
   //fetching index file and show data on screen
@@ -30,6 +45,12 @@ export class Admin{
             let infos = json;
             return infos;
           });
+  }
+
+  //edits the marker
+  editMarker(marker){
+    this.currentMarker = marker;
+    $(this.editModal).find('.modal').modal();
   }
 
 }
