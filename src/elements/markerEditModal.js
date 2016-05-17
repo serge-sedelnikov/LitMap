@@ -21,6 +21,14 @@ export class MarkerEditModal{
     if(!this.miniMap)
       return;
 
+    if(!this.item)
+      return;
+    if(!this.item.pos){
+      this.item.pos = [0.0, 0.0];
+      return;
+    }
+    let center = [this.item.pos[0], this.item.pos[1]];
+
     //clean markers if needed
     if(this.markers)
       this.map.removeLayer(this.markers);
@@ -29,7 +37,7 @@ export class MarkerEditModal{
     this.markers = new L.MarkerClusterGroup();
 
     //set up center
-    this.map.setView(this.item.pos, 13);
+    this.map.setView(center, 13);
 
     //set marker
     var marker = L.marker(new L.LatLng(this.item.pos[0], this.item.pos[1]), {
@@ -46,9 +54,6 @@ export class MarkerEditModal{
 
   //initializes the map
   initializeMap(){
-    if(!this.item){
-      return;
-    }
     //initialize map only if not yet initialized
     if(!this.map){
       this.map = L.mapbox
@@ -60,17 +65,17 @@ export class MarkerEditModal{
     }
 
   itemChanged(){
+    if(this.dispose)
+      this.dispose();
+
     if(this.item){
         // subscribe
-        this.mo.observe([
-          [this.item, 'pos'],
+        this.dispose = this.mo.observe([
           [this.item, 'color']
         ], () => {
           this.setUpMarker();
         });
       }
-
-    this.initializeMap();
   }
 
   attached(){
@@ -81,10 +86,11 @@ export class MarkerEditModal{
       //subscribe for map invalidate
       $(this.modal).on('shown.bs.modal', () => {
         s.invalidateMap();
+        s.setUpMarker();
       });
 
       //subscribe for events
-      this.posChangedSub = this.ea.subscribe('marker-model-pos-changed', (array)=>{
+      this.posChangedSub = this.ea.subscribe('marker-model-changed', ()=>{
         this.setUpMarker();
       })
   }
@@ -117,8 +123,7 @@ export class PosValueConverter{
 
   fromView(value, index, array){
     array[index] = parseFloat(value);
-    this.ea.publish('marker-model-pos-changed', array);
+    this.ea.publish('marker-model-changed');
     return array;
   }
-
 }

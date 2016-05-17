@@ -20,6 +20,10 @@ export class AdminMarkerInfo{
   setUpMarker(){
     if(!this.miniMap)
       return;
+    if(!this.item)
+      return;
+    if(!this.item.pos)
+      this.item.pos = [0.0, 0.0];
 
     //set up clustering
     let markers = new L.MarkerClusterGroup();

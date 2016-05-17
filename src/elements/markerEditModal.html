@@ -24,8 +24,28 @@
                 <input type="text" id="coordinatesEditLon" value.two-way="item.pos | pos:1:item.pos" class="form-control"/>
             </div>
 
-            <div class="col-md-12" css="position: relative;">
+            <div class="col-md-12" css="position: relative; margin-top: 1em; margin-bottom: 1em;">
                 <div class="mini-map-modal" id="mini-map-modal" ref="miniMap"></div>
+            </div>
+
+            <div class="col-md-6">
+                <label t="admin.edit.image" for="imageMarker"></label>
+                <input type="text" id="imageMarker" value.two-way="item.marker" class="form-control"/>
+            </div>
+
+            <div class="col-md-6">
+                <label t="admin.edit.data" for="markerData"></label>
+                <input type="text" id="markerData" value.two-way="item.data" class="form-control"/>
+            </div>
+
+            <div class="col-md-6">
+                <label t="admin.edit.thumb" for="thumb"></label>
+                <input type="file" id="thumb" value.bind="thumbFileName" class="form-control"/>
+            </div>
+
+            <div class="col-md-6">
+              <label t="admin.edit.full" for="full"></label>
+              <input type="file" id="full" value.bind="fullFileName" class="form-control"/>
             </div>
 
           </div>

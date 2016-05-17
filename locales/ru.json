@@ -41,7 +41,11 @@
       "save": "Сохранить",
       "color": "Цвет",
       "coordinatesLat": "Широта",
-      "coordinatesLon": "Долгота"
+      "coordinatesLon": "Долгота",
+      "image": "Иконка",
+      "data": "Название",
+      "thumb": "Файл маркера",
+      "full": "Файл полной статьи"
     }
   },
   "feedback":{
