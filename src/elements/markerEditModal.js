@@ -2,16 +2,18 @@ import $ from "jquery";
 import {bindable} from "aurelia-framework";
 import {inject} from 'aurelia-framework';
 import {MultiObserver} from './multiObserver';
+import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject (MultiObserver)
+@inject (MultiObserver, EventAggregator)
 export class MarkerEditModal{
 
   //marker to be bind
   @bindable item;
 
-  constructor(MultiObserver){
+  constructor(MultiObserver, EventAggregator){
     //subscribe for item properties changed
     this.mo = MultiObserver;
+    this.ea = EventAggregator;
   }
 
   //adds marker to the mini map
@@ -72,6 +74,7 @@ export class MarkerEditModal{
   }
 
   attached(){
+
       this.initializeMap();
 
       let s = this;
@@ -79,6 +82,15 @@ export class MarkerEditModal{
       $(this.modal).on('shown.bs.modal', () => {
         s.invalidateMap();
       });
+
+      //subscribe for events
+      this.posChangedSub = this.ea.subscribe('marker-model-pos-changed', (array)=>{
+        this.setUpMarker();
+      })
+  }
+
+  detached(){
+    this.posChangedSub.dispose();
   }
 
   invalidateMap(){
@@ -87,7 +99,12 @@ export class MarkerEditModal{
 }
 
 //converts array of positions into two values according to index
+@inject(EventAggregator)
 export class PosValueConverter{
+
+  constructor(EventAggregator){
+    this.ea = EventAggregator;
+  }
 
   toView(value, index){
     this.index = index;
@@ -100,6 +117,7 @@ export class PosValueConverter{
 
   fromView(value, index, array){
     array[index] = parseFloat(value);
+    this.ea.publish('marker-model-pos-changed', array);
     return array;
   }
 
