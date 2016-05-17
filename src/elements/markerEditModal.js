@@ -1,18 +1,18 @@
 import $ from "jquery";
 import {bindable} from "aurelia-framework";
 import {inject} from 'aurelia-framework';
-import {MultiObserver} from './multiObserver';
+import {BindingEngine} from 'aurelia-framework';
 import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject (MultiObserver, EventAggregator)
+@inject (EventAggregator, BindingEngine)
 export class MarkerEditModal{
 
   //marker to be bind
   @bindable item;
 
-  constructor(MultiObserver, EventAggregator){
+  constructor(EventAggregator, BindingEngine){
     //subscribe for item properties changed
-    this.mo = MultiObserver;
+    this.mo = BindingEngine;
     this.ea = EventAggregator;
   }
 
@@ -66,13 +66,11 @@ export class MarkerEditModal{
 
   itemChanged(){
     if(this.dispose)
-      this.dispose();
+      this.dispose.dispose();
 
     if(this.item){
         // subscribe
-        this.dispose = this.mo.observe([
-          [this.item, 'color']
-        ], () => {
+        this.dispose = this.mo.propertyObserver(this.item, 'color').subscribe(() => {
           this.setUpMarker();
         });
       }
