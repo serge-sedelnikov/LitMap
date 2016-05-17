@@ -1,10 +1,23 @@
 import $ from "jquery";
 import {bindable} from "aurelia-framework";
+import {ObserverLocator, inject} from 'aurelia-framework';
 
+@inject (ObserverLocator)
 export class MarkerEditModal{
 
   //marker to be bind
   @bindable item;
+
+  constructor(ObserverLocator){
+    //subscribe for item properties changed
+    this.ol = ObserverLocator;
+  }
+
+  //reset the marker on item property changed
+  onItemColorChange(newValue, oldValue){
+    console.log(this);
+      this.setUpMarker();
+  }
 
   //adds marker to the mini map
   setUpMarker(){
@@ -64,6 +77,15 @@ export class MarkerEditModal{
     }
 
   itemChanged(){
+    if(this.subscription)
+      this.subscription.unsubscribe();
+
+    if(this.item)
+        this.subscription = this.ol.getObserver(this.item, 'color')
+          .subscribe((o,n)=>{
+            this.onItemColorChange(o,n);
+          });
+
     this.initializeMap();
   }
 
