@@ -3,6 +3,7 @@ import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
 import {EventAggregator} from "aurelia-event-aggregator";
 import $ from "jquery";
+import _ from "lodash";
 
 @inject(HttpClient, EventAggregator)
 export class Admin{
@@ -24,7 +25,7 @@ export class Admin{
     return p1.then((infos)=>{
       //get the most interesting this week
       //meaning get last 8 articles
-      this.markers = infos;
+      this.markers = _.reverse(infos);
     });
   }
 

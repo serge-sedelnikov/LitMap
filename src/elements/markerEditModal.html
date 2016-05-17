@@ -11,8 +11,23 @@
           <div class="row">
             <div class="col-md-4">
                 <label t="admin.edit.color" for="colorEdit"></label>
-                <input type="color" value.bind="item.color" class="form-control" css="color: ${item.color};"/>
+                <input type="color" id="colorEdit" value.bind="item.color" class="form-control" css="color: ${item.color};"/>
             </div>
+
+            <div class="col-md-4">
+                <label t="admin.edit.coordinatesLat" for="coordinatesEditLat"></label>
+                <input type="text" id="coordinatesEditLat" value.bind="item.pos[0]" class="form-control"/>
+            </div>
+
+            <div class="col-md-4">
+                <label t="admin.edit.coordinatesLon" for="coordinatesEditLon"></label>
+                <input type="text" id="coordinatesEditLon" value.bind="item.pos[1]" class="form-control"/>
+            </div>
+
+            <div class="col-md-12" css="position: relative;">
+                <div class="mini-map-modal" id="mini-map-modal" ref="miniMap"></div>
+            </div>
+
           </div>
 
         </div>

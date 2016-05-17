@@ -39,7 +39,9 @@
       "title": "Маркер на карте",
       "cancel": "Отмена",
       "save": "Сохранить",
-      "color": "Цвет"
+      "color": "Цвет",
+      "coordinatesLat": "Широта",
+      "coordinatesLon": "Долгота"
     }
   },
   "feedback":{

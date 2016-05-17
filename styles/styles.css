@@ -231,3 +231,8 @@ section{
   margin-right: -15px;
   margin-top: -15px;
 }
+.mini-map-modal{
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
