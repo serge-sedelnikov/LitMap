@@ -1,22 +1,17 @@
 import $ from "jquery";
 import {bindable} from "aurelia-framework";
-import {ObserverLocator, inject} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
+import {MultiObserver} from './multiObserver';
 
-@inject (ObserverLocator)
+@inject (MultiObserver)
 export class MarkerEditModal{
 
   //marker to be bind
   @bindable item;
 
-  constructor(ObserverLocator){
+  constructor(MultiObserver){
     //subscribe for item properties changed
-    this.ol = ObserverLocator;
-  }
-
-  //reset the marker on item property changed
-  onItemColorChange(newValue, oldValue){
-    console.log(this);
-      this.setUpMarker();
+    this.mo = MultiObserver;
   }
 
   //adds marker to the mini map
@@ -42,8 +37,8 @@ export class MarkerEditModal{
             'marker-color': this.item.color
           })
     });
-    this.markers.addLayer(marker);
 
+    this.markers.addLayer(marker);
     this.map.addLayer(this.markers);
   }
 
@@ -59,32 +54,19 @@ export class MarkerEditModal{
             zoomControl: false,
             infoControl: false
           });
-
-        // Disable drag and zoom handlers.
-        // this.map.dragging.disable();
-        // this.map.touchZoom.disable();
-        // this.map.doubleClickZoom.disable();
-        // this.map.scrollWheelZoom.disable();
-        // this.map.keyboard.disable();
-
-        // Disable tap handler, if present.
-        // if (this.map.tap)
-        //   this.map.tap.disable();
       }
-
-      this.map.setView(this.item.pos, 16);
-      this.setUpMarker();
     }
 
   itemChanged(){
-    if(this.subscription)
-      this.subscription.unsubscribe();
-
-    if(this.item)
-        this.subscription = this.ol.getObserver(this.item, 'color')
-          .subscribe((o,n)=>{
-            this.onItemColorChange(o,n);
-          });
+    if(this.item){
+        // subscribe
+        this.mo.observe([
+          [this.item, 'pos'],
+          [this.item, 'color']
+        ], () => {
+          this.setUpMarker();
+        });
+      }
 
     this.initializeMap();
   }
@@ -102,8 +84,23 @@ export class MarkerEditModal{
   invalidateMap(){
     this.map.invalidateSize();
   }
+}
 
-  activate(){
-    console.log("123");
+//converts array of positions into two values according to index
+export class PosValueConverter{
+
+  toView(value, index){
+    this.index = index;
+
+    if(!value)
+      return undefined;
+
+    return value[index];
   }
+
+  fromView(value, index, array){
+    array[index] = parseFloat(value);
+    return array;
+  }
+
 }

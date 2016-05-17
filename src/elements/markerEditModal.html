@@ -16,12 +16,12 @@
 
             <div class="col-md-4">
                 <label t="admin.edit.coordinatesLat" for="coordinatesEditLat"></label>
-                <input type="text" id="coordinatesEditLat" value.bind="item.pos[0]" class="form-control"/>
+                <input type="text" id="coordinatesEditLat" value.two-way="item.pos | pos:0:item.pos" class="form-control"/>
             </div>
 
             <div class="col-md-4">
                 <label t="admin.edit.coordinatesLon" for="coordinatesEditLon"></label>
-                <input type="text" id="coordinatesEditLon" value.bind="item.pos[1]" class="form-control"/>
+                <input type="text" id="coordinatesEditLon" value.two-way="item.pos | pos:1:item.pos" class="form-control"/>
             </div>
 
             <div class="col-md-12" css="position: relative;">
