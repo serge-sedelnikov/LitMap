@@ -129,7 +129,8 @@ export class MarkerEditModal{
     let f2 = this.uploadFile('full', this.fullFile);
 
     Promise.all([f1, f2]).then(()=>{
-      alert('uploaded');
+      //close modal
+      $(this.modal).modal('hide');
     })
 
   }

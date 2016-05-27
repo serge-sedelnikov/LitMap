@@ -11,15 +11,19 @@ export class Admin{
   constructor(http, ea){
     this.http = http;
     this.ea = ea;
+    this.subscriptions = [];
   }
 
   //executes on activate
   activate(){
 
     //subscribe for events
-    this.subscription = this.ea.subscribe('admin-marker-edit', (item)=>{
+    this.subscriptions.push(this.ea.subscribe('admin-marker-edit', (item)=>{
       this.editMarker(item);
-    });
+    }));
+    this.subscriptions.push(this.ea.subscribe('admin-marker-saved', (item)=>{
+      this.markerSaved(item);
+    }));
 
     let p1 = this.fetchIndex();
     return p1.then((infos)=>{
@@ -32,7 +36,9 @@ export class Admin{
   //on page detached
   detached(){
     //unsubscribe from event aggregators
-    this.subscription.dispose();
+    _.forEach(this.subscriptions, (s)=>{
+      s.dispose();
+    });
   }
 
   //fetching index file and show data on screen
@@ -50,8 +56,26 @@ export class Admin{
 
   //edits the marker
   editMarker(marker){
-    this.currentMarker = marker;
+    //make a copy of the marker
+    let newObject = jQuery.extend({}, marker);
+    this.currentMarker = newObject;
     $(this.editModal).find('.modal').modal();
   }
 
+  //user clicked to save marker and uploaded files
+  markerSaved(item){
+    //add or replace merker in markers
+    let originalMarker = _.find(this.markers, (m)=>{
+      return m.data == item.data;
+    });
+    //if found, replace it with new
+    if(originalMarker){
+      _.pull(this.markers, originalMarker);
+      this.markers.push(item);
+    }
+
+    //save markers json to index.json
+
+    //reload the page
+  }
 }
