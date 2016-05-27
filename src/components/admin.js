@@ -62,6 +62,16 @@ export class Admin{
     $(this.editModal).find('.modal').modal();
   }
 
+  //adds new marker to the markers
+  addMarker(){
+    this.currentMarker = {
+      marker: '',
+      pos: [0,0],
+      color: '#9E9D24'
+    };
+    $(this.editModal).find('.modal').modal();
+  }
+
   //user clicked to save marker and uploaded files
   markerSaved(item){
     //add or replace merker in markers
@@ -70,9 +80,14 @@ export class Admin{
     });
     //if found, replace it with new
     if(originalMarker){
+      //marker updated
       let originalIndex = _.indexOf(this.markers, originalMarker);
       this.markers.splice(originalIndex, 0, item);
       _.pull(this.markers, originalMarker);
+    }
+    else{
+      //new marker added
+      this.markers.splice(0, 0, item);
     }
 
     //save markers json to index.json

@@ -62,7 +62,7 @@ export class MarkerEditModal{
     //initialize map only if not yet initialized
     if(!this.map){
       this.map = L.mapbox
-          .map(`mini-map-modal`, 'mapbox.streets',{
+          .map('mini-map-modal', 'mapbox.streets',{
             zoomControl: false,
             infoControl: false
           });
