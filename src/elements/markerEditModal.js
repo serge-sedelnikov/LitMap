@@ -3,8 +3,10 @@ import {bindable} from "aurelia-framework";
 import {inject} from 'aurelia-framework';
 import {BindingEngine} from 'aurelia-framework';
 import {EventAggregator} from "aurelia-event-aggregator";
+import 'fetch';
+import {HttpClient} from 'aurelia-fetch-client';
 
-@inject (EventAggregator, BindingEngine)
+@inject (EventAggregator, BindingEngine, HttpClient)
 export class MarkerEditModal{
 
   //marker to be bind
@@ -12,10 +14,11 @@ export class MarkerEditModal{
   @bindable thumbFileName;
   @bindable fullFileName;
 
-  constructor(EventAggregator, BindingEngine){
+  constructor(EventAggregator, BindingEngine, HttpClient){
     //subscribe for item properties changed
     this.mo = BindingEngine;
     this.ea = EventAggregator;
+    this.http = HttpClient;
   }
 
   //adds marker to the mini map
@@ -106,33 +109,25 @@ export class MarkerEditModal{
   //on thumb file name select
   thumbFileNameChanged(newValue){
     console.log(newValue);
-    //read the content of the file
-    let reader = new FileReader();
-    let file = newValue[0];
-    reader.readAsText(file);
-    let fileName = file.name;
-    console.log(fileName);
-    reader.onload = () => {
-        let file = reader.result;
-        console.log(file);
-        this.thumbFileContent = file;
-    };
+    let formData = new FormData();
+    formData.append('thumbs_' + this.item.data, newValue[0]);
+    formData.append('dir', 'thumbs');
+    formData.append('fileNameParam', 'thumbs_' + this.item.data);
+    formData.append('targetFileName', this.item.data + ".md");
+
+    this.http.fetch('upload.php', {
+      method: 'POST',
+      body: formData,
+      contentType: false,
+      processData: false,
+    })
+
   }
 
   //on data file name select
   fullFileNameChanged(newValue){
     console.log(newValue);
-    //read the content of the file
-    let reader = new FileReader();
-    let file = newValue[0];
-    reader.readAsText(file);
-    let fileName = file.name;
-    console.log(fileName);
-    reader.onload = () => {
-        let file = reader.result;
-        console.log(file);
-        this.fullFileContent = file;
-    };
+
   }
 }
 
