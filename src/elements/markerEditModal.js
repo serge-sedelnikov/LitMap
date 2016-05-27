@@ -11,14 +11,14 @@ export class MarkerEditModal{
 
   //marker to be bind
   @bindable item;
-  @bindable thumbFileName;
-  @bindable fullFileName;
 
   constructor(EventAggregator, BindingEngine, HttpClient){
     //subscribe for item properties changed
     this.mo = BindingEngine;
     this.ea = EventAggregator;
     this.http = HttpClient;
+    this.thumbFile;
+    this.fullFile;
   }
 
   //adds marker to the mini map
@@ -106,27 +106,31 @@ export class MarkerEditModal{
     this.map.invalidateSize();
   }
 
-  //on thumb file name select
-  thumbFileNameChanged(newValue){
-    console.log(newValue);
+  //upload file
+  uploadFile(fileDestination, files){
+    if(!files)
+      return null;
+
     let formData = new FormData();
-    formData.append('thumbs_' + this.item.data, newValue[0]);
-    formData.append('dir', 'thumbs');
-    formData.append('fileNameParam', 'thumbs_' + this.item.data);
+    formData.append(fileDestination + this.item.data, files[0]);
+    formData.append('dir', fileDestination);
+    formData.append('fileNameParam', fileDestination + this.item.data);
     formData.append('targetFileName', this.item.data + ".md");
 
-    this.http.fetch('upload.php', {
+    return this.http.fetch('upload.php', {
       method: 'POST',
-      body: formData,
-      contentType: false,
-      processData: false,
-    })
-
+      body: formData
+    });
   }
 
-  //on data file name select
-  fullFileNameChanged(newValue){
-    console.log(newValue);
+  //saves the data to file index
+  save(){
+    let f1 = this.uploadFile('thumbs', this.thumbFile);
+    let f2 = this.uploadFile('full', this.fullFile);
+
+    Promise.all([f1, f2]).then(()=>{
+      alert('uploaded');
+    })
 
   }
 }

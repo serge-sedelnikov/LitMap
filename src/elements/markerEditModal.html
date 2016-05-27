@@ -40,12 +40,12 @@
 
             <div class="col-md-6">
                 <label t="admin.edit.thumb" for="thumb"></label>
-                <input type="file" id="thumb" accept=".md" files.bind="thumbFileName" class="form-control"/>
+                <input type="file" id="thumb" accept=".md" files.bind="thumbFile" class="form-control"/>
             </div>
 
             <div class="col-md-6">
               <label t="admin.edit.full" for="full"></label>
-              <input type="file" id="full" accept=".md" files.bind="fullFileName" class="form-control"/>
+              <input type="file" id="full" accept=".md" files.bind="fullFile" class="form-control"/>
             </div>
 
           </div>
@@ -53,7 +53,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" t="admin.edit.cancel"></button>
-          <button type="button" class="btn btn-primary" t="admin.edit.save"></button>
+          <button type="button" class="btn btn-primary" t="admin.edit.save" click.delegate="save()"></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
