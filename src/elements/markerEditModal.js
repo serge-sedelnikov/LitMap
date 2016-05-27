@@ -129,6 +129,8 @@ export class MarkerEditModal{
     let f2 = this.uploadFile('full', this.fullFile);
 
     Promise.all([f1, f2]).then(()=>{
+      //notify to update index file
+      this.ea.publish('admin-marker-saved', this.item);
       //close modal
       $(this.modal).modal('hide');
     })

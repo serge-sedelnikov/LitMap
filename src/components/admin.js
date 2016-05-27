@@ -5,6 +5,10 @@ import {EventAggregator} from "aurelia-event-aggregator";
 import $ from "jquery";
 import _ from "lodash";
 
+Array.prototype.insert = (index, item) => {
+  this.splice(index, 0, item);
+};
+
 @inject(HttpClient, EventAggregator)
 export class Admin{
 
@@ -70,8 +74,10 @@ export class Admin{
     });
     //if found, replace it with new
     if(originalMarker){
+      let originalIndex = _.indexOf(this.markers, originalMarker);
+      this.markers.splice(originalIndex, 0, item);
+      // this.markers.insert(originalIndex, item);
       _.pull(this.markers, originalMarker);
-      this.markers.push(item);
     }
 
     //save markers json to index.json
