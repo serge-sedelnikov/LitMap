@@ -219,38 +219,6 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/sub.js",
       "npm:remarkable@1.6.2/lib/rules_inline/sup.js",
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
-    ],
-    "dist/app-build-176ef4148e.js": [
-      "app.html!github:systemjs/plugin-text@0.0.4.js",
-      "app.js",
-      "main.js"
-    ],
-    "dist/app-build-elements-e69bd8e68b.js": [
-      "elements/adminMarkerInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/adminMarkerInfo.js",
-      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/closeInfo.js",
-      "elements/footer.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/footer.js",
-      "elements/mediaAdjuster.js",
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/navBar.js",
-      "elements/wall.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/wall.js"
-    ],
-    "dist/app-build-components-56ee66cddf.js": [
-      "components/admin.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/admin.js",
-      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/details.js",
-      "components/detailsClose.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/detailsClose.js",
-      "components/feedback.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/feedback.js",
-      "components/home.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/home.js",
-      "components/map.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/map.js"
     ]
   },
 
@@ -285,6 +253,7 @@ System.config({
     "lodash": "npm:lodash@4.6.1",
     "markdown": "npm:markdown@0.5.0",
     "masonry-layout": "npm:masonry-layout@4.0.0",
+    "mjolnic/bootstrap-colorpicker": "github:mjolnic/bootstrap-colorpicker@2.3.3",
     "remarkable": "npm:remarkable@1.6.2",
     "stephen-hardy/DOCX.js": "github:stephen-hardy/DOCX.js@master",
     "suprb/Nested": "github:suprb/Nested@master",

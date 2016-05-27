@@ -329,5 +329,6 @@
     "process": "github:jspm/nodelibs-process@^0.1.0",
     "child_process": "github:jspm/nodelibs-child_process@^0.1.0"
   },
-  "npm:underscore@1.7.0": {}
+  "npm:underscore@1.7.0": {},
+  "github:mjolnic/bootstrap-colorpicker@2.3.3": {}
 }

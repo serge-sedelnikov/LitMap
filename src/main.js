@@ -1,7 +1,7 @@
 import {I18N} from 'aurelia-i18n';
 import XHR from 'i18next-xhr-backend'; // <-- your previously installed backend plugin
 
-  export function configure(aurelia) {
+export function configure(aurelia) {
     aurelia.use
       .standardConfiguration()
       .developmentLogging()
@@ -15,7 +15,7 @@ import XHR from 'i18next-xhr-backend'; // <-- your previously installed backend 
           },
           lng : 'ru',
           attributes : ['t','i18n'],
-          fallbackLng : 'en',
+          fallbackLng : 'ru',
           debug : true,
           ns: ['translation'],
           defaultNS: "translation",

@@ -41,6 +41,7 @@
       "mammoth": "npm:mammoth@^0.3.33",
       "markdown": "npm:markdown@^0.5.0",
       "masonry-layout": "npm:masonry-layout@^4.0.0",
+      "mjolnic/bootstrap-colorpicker": "github:mjolnic/bootstrap-colorpicker@^2.3.3",
       "remarkable": "npm:remarkable@^1.6.2",
       "stephen-hardy/DOCX.js": "github:stephen-hardy/DOCX.js@master",
       "suprb/Nested": "github:suprb/Nested@master",
