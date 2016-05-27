@@ -134,7 +134,28 @@ section{
 }
 
 .section-fixed{
-  width: 300px;
+  min-width: 300px;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .section-fixed{
+    width: 100%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .section-fixed{
+    width: 48%;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .section-fixed{
+    width: 31%;
+  }
 }
 
 .section-fixed-height{
