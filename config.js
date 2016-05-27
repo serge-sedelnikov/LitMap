@@ -221,7 +221,6 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
     ]
   },
-
   map: {
     "-a": "npm:babel-core@5.8.38",
     "-a-runtime": "npm:babel-runtime@5.8.38",

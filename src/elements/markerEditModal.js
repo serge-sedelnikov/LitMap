@@ -9,6 +9,8 @@ export class MarkerEditModal{
 
   //marker to be bind
   @bindable item;
+  @bindable thumbFileName;
+  @bindable fullFileName;
 
   constructor(EventAggregator, BindingEngine){
     //subscribe for item properties changed
@@ -99,6 +101,38 @@ export class MarkerEditModal{
 
   invalidateMap(){
     this.map.invalidateSize();
+  }
+
+  //on thumb file name select
+  thumbFileNameChanged(newValue){
+    console.log(newValue);
+    //read the content of the file
+    let reader = new FileReader();
+    let file = newValue[0];
+    reader.readAsText(file);
+    let fileName = file.name;
+    console.log(fileName);
+    reader.onload = () => {
+        let file = reader.result;
+        console.log(file);
+        this.thumbFileContent = file;
+    };
+  }
+
+  //on data file name select
+  fullFileNameChanged(newValue){
+    console.log(newValue);
+    //read the content of the file
+    let reader = new FileReader();
+    let file = newValue[0];
+    reader.readAsText(file);
+    let fileName = file.name;
+    console.log(fileName);
+    reader.onload = () => {
+        let file = reader.result;
+        console.log(file);
+        this.fullFileContent = file;
+    };
   }
 }
 
