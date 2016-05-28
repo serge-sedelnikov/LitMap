@@ -94,9 +94,27 @@ export class Admin{
       //new marker added
       this.markers.splice(0, 0, item);
     }
+  }
 
-    //save markers json to index.json
+  //upload file
+  uploadFile(data){
+    if(!data)
+      return null;
 
-    //reload the page
+    let formData = new FormData();
+    formData.append('data', data);
+    formData.append('targetFileName', "index.json");
+
+    return this.http.fetch('textupload.php', {
+      method: 'POST',
+      body: formData
+    });
+  }
+
+  //saves the index file into the server
+  saveIndex(){
+    //get json text from markers
+    var jsonData = JSON.stringify(this.markers);
+    this.uploadFile(jsonData);
   }
 }
