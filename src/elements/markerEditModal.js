@@ -131,10 +131,12 @@ export class MarkerEditModal{
     Promise.all([f1, f2]).then(()=>{
       //notify to update index file
       this.ea.publish('admin-marker-saved', this.item);
-      //close modal
-      //$(this.modal).modal('hide');
-    })
+    });
+  }
 
+  delete(){
+    //notify to delete marker
+    this.ea.publish('admin-marker-delete', this.item);
   }
 }
 

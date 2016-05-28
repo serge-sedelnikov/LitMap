@@ -24,6 +24,9 @@ export class Admin{
     this.subscriptions.push(this.ea.subscribe('admin-marker-saved', (item)=>{
       this.markerSaved(item);
     }));
+    this.subscriptions.push(this.ea.subscribe('admin-marker-delete', (item)=>{
+      this.markerDelete(item);
+    }));
 
     return this.refreshIndex();
   }
@@ -93,6 +96,20 @@ export class Admin{
     else{
       //new marker added
       this.markers.splice(0, 0, item);
+    }
+  }
+
+  //delete marker from the marker list
+  markerDelete(item){
+    //add or replace merker in markers
+    let originalMarker = _.find(this.markers, (m)=>{
+      return m.data == item.data;
+    });
+    //if found, replace it with new
+    if(originalMarker){
+      //marker updated
+      let originalIndex = _.indexOf(this.markers, originalMarker);
+      _.pull(this.markers, originalMarker);
     }
   }
 
