@@ -25,12 +25,7 @@ export class Admin{
       this.markerSaved(item);
     }));
 
-    let p1 = this.fetchIndex();
-    return p1.then((infos)=>{
-      //get the most interesting this week
-      //meaning get last 8 articles
-      this.markers = _.reverse(infos);
-    });
+    return this.refreshIndex();
   }
 
   //on page detached
@@ -38,6 +33,16 @@ export class Admin{
     //unsubscribe from event aggregators
     _.forEach(this.subscriptions, (s)=>{
       s.dispose();
+    });
+  }
+
+  //refreshes the index data
+  refreshIndex(){
+    let p1 = this.fetchIndex();
+    return p1.then((infos)=>{
+      //get the most interesting this week
+      //meaning get last 8 articles
+      this.markers = _.reverse(infos);
     });
   }
 

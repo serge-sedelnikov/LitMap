@@ -8,23 +8,33 @@
           <i class="fa fa-map-marker"></i>&nbsp;<span t="admin.mapPoints"></span>
         </h4>
 
-        <div class="row text-center">
+        <div class="row">
           <div class="col-lg-12">
               <div class="section section-fixed text-center" style="margin-left: 8px; margin-right: 8px; min-height: 300px;">
                 <div style="margin-top: 86px;">
-                  <div t="admin.addMarker"></div>
+                  <div t="admin.controls"></div>
+
                   <a href="JavaScript:void(0);" click.delegate="addMarker()" class="btn btn-default">
                     <i class="fa fa-plus"></i>&nbsp;<span t="admin.item.add"></span>
                   </a>
+
+                  <button class="btn btn-success" >
+                      <i class="fa fa-save"></i>&nbsp;<span t="admin.edit.save"></span>
+                  </button>
+
+                  <button class="btn btn-link danger" style="margin-top: 6px;" click.delegate="refreshIndex()">
+                      <i class="fa fa-refresh"></i>&nbsp;<span t="admin.edit.revert"></span>
+                  </button>
+
+
                 </div>
               </div>
-              
+
               <admin-marker-info  repeat.for="m of markers" item.bind="m" index.bind="$index"></admin-marker-info>
           </div>
-          </div>
         </div>
-
     </section>
+  </div>
 
     <!--modal dialog for editing marker-->
     <marker-edit-modal ref="editModal" item.bind="currentMarker"></marker-edit-modal>
