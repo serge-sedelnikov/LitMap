@@ -30,7 +30,7 @@
 
             <div class="col-md-6">
                 <label t="admin.edit.image" for="imageMarker"></label>
-                <input type="text" id="imageMarker" value.two-way="item.marker" class="form-control"/>
+                <input type="text" id="imageMarker" change.bind="markerChanged()" value.two-way="item.marker & updateTrigger:'blur'" class="form-control"/>
             </div>
 
             <div class="col-md-6">
@@ -38,12 +38,12 @@
                 <input type="text" id="markerData" value.two-way="item.data" class="form-control"/>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-top: 1em;">
                 <label t="admin.edit.thumb" for="thumb"></label>
                 <input type="file" name="thumbFile" id="thumb" accept=".md" files.bind="thumbFile" class="form-control"/>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-top: 1em;">
               <label t="admin.edit.full" for="full"></label>
               <input type="file" name="fullFile" id="full" accept=".md" files.bind="fullFile" class="form-control"/>
             </div>
