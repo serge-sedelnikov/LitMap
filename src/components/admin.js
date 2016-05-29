@@ -74,8 +74,9 @@ export class Admin{
   addMarker(){
     this.currentMarker = {
       marker: '',
-      pos: [0,0],
-      color: '#9E9D24'
+      pos: [57.180707,65.517749],
+      color: '#EF6C00',
+      data: 'название файла'
     };
     $(this.editModal).find('.modal').modal();
   }
