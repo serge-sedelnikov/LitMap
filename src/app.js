@@ -27,7 +27,8 @@ export class App {
       { route: ['','home'], name: 'home', moduleId: './components/home', nav: true, title:'Главное', settings: {roles: []} },
       { route: ['map'], name: 'map', moduleId: './components/map', nav: true, title:'Карта', settings: {roles: []} },
       { route: [':data'], name: 'details', moduleId: './components/details', nav: false, title:'Детали', settings: {roles: []} },
-      { route: ['feedback'], name: 'feedback', moduleId: './components/feedback', nav: true, title:'Обсудить', settings: {roles: []} },
+      { route: ['feedback'], name: 'feedback', moduleId: './components/feedback', nav: true, title:'Обсудить', settings: { target: 'blank', roles: []} },
+      { route: ['http://xn--l1adgmc.xn----itbklch6ag0gq.xn--p1ai/'], name: 'forum', moduleId: 'http://xn--l1adgmc.xn----itbklch6ag0gq.xn--p1ai/', nav: true, title:'Форум', settings: {roles: []} },
       { route: ['adm'], name: 'admin', moduleId: './components/admin', nav: false, title: 'Админ', settings: {roles: ["admin"]} }
     ];
 

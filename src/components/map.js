@@ -52,7 +52,9 @@ export class Map{
   }
 
   fetchIndex(map){
-      self.http.fetch('data/index.json')
+      let url = 'data/index.json?t=' + new Date().getTime();
+      console.log(url);
+      self.http.fetch(url)
       .then(response=>{
         //convert text to json
         return response.json()

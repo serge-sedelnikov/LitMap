@@ -51,7 +51,7 @@ export class Admin{
 
   //fetching index file and show data on screen
   fetchIndex(){
-    return this.http.fetch('data/index.json')
+    return this.http.fetch('data/index.json?t=' + new Date().getTime())
         .then(response=>{
           //convert text to json
           return response.json()
