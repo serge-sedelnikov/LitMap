@@ -34,7 +34,7 @@ export class DetailsClose{
     //order them by didtance
     let p1 = new L.LatLng(this.parentData.pos[0], this.parentData.pos[1]);
 
-    return this.http.fetch('data/index.json')
+    return this.http.fetch('data/index.json?t=' + new Date().getTime())
     .then(response=>{
       //convert text to json
       return response.json()

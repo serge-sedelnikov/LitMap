@@ -266,12 +266,18 @@ section{
   padding: 6px 12px;
   top: 143px;
   left: 12px;
-  z-index: 9000;
-  width: 400px;
+  z-index: 10;
+  width: 350px;
   background: white;
   border-radius: 3px;
   /*border: 1px solid #999;*/
   /*border-color: rgba(0,0,0,.4);*/
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.15);
   box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+
+.form-plane{
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
