@@ -13,6 +13,7 @@
     "alsoInteresting": "Может быть интересно"
   },
   "map":{
+    "searchMessage": "Много всего? Ищем тут.",
     "marker":{
       "readMore": "Далее"
     }

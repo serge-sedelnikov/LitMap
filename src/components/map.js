@@ -68,11 +68,31 @@ export class Map{
   //on attached to DOM
   attached(){
     self.map = L.mapbox
-        .map('map', 'mapbox.streets')
+        .map('map', 'mapbox.streets', {
+            legendControl: {
+                // Any of the valid control positions:
+                // https://www.mapbox.com/mapbox.js/api/v2.4.0/l-control/#control-positions
+                position: 'topleft'
+            }
+        })
         .setView([57.15000, 65.53333], 11);
+
+    self.map.legendControl.addLegend(this.mapLegend.innerHTML);
 
     //start loading index file and once its done, fetch markers data.
     //start fetching markers
     this.fetchIndex(self.map);
+  }
+}
+
+@inject(I18N)
+class TValueConverter{
+
+  constructor(i18bn){
+    self.i18bn = i18bn;
+  }
+
+  toView(key){
+    return self.i18n.i18next.t(key);
   }
 }

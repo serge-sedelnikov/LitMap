@@ -219,42 +219,6 @@ System.config({
       "npm:remarkable@1.6.2/lib/rules_inline/sub.js",
       "npm:remarkable@1.6.2/lib/rules_inline/sup.js",
       "npm:remarkable@1.6.2/lib/rules_inline/text.js"
-    ],
-    "dist/app-build-ff9afb7f06.js": [
-      "app.html!github:systemjs/plugin-text@0.0.4.js",
-      "app.js",
-      "main.js"
-    ],
-    "dist/app-build-components-e15ea2ea61.js": [
-      "components/admin.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/admin.js",
-      "components/details.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/details.js",
-      "components/detailsClose.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/detailsClose.js",
-      "components/feedback.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/feedback.js",
-      "components/home.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/home.js",
-      "components/map.html!github:systemjs/plugin-text@0.0.4.js",
-      "components/map.js"
-    ],
-    "dist/app-build-elements-94011ca466.js": [
-      "elements/adminMarkerInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/adminMarkerInfo.js",
-      "elements/closeInfo.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/closeInfo.js",
-      "elements/footer.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/footer.js",
-      "elements/markerEditModal.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/markerEditModal.js",
-      "elements/mediaAdjuster.js",
-      "elements/multiObserver.js",
-      "elements/navBar.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/navBar.js",
-      "elements/userInfo.js",
-      "elements/wall.html!github:systemjs/plugin-text@0.0.4.js",
-      "elements/wall.js"
     ]
   },
   map: {
