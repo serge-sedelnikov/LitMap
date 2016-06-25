@@ -28,6 +28,7 @@ export class Map{
     if(saveOriginal)
       this.items = points;
 
+    //clear the layers in grouping layer
     self.overlays.clearLayers();
 
     //set up clustering
@@ -51,6 +52,16 @@ export class Map{
         //fetch marker text as md and set poopup as html
         self.http.fetch('data/thumbs/' + a.data + '.md')
         .then(d=>{
+
+          //fetch full text for each marker to perform full text search
+          self.http.fetch('data/full/'+ a.data + '.md')
+          .then(ft=>{
+            return ft.text();
+          })
+          .then(fft=>{
+            a.fullText = fft;
+          });
+
           return  d.text();
         })
         .then(t=>{
@@ -97,7 +108,8 @@ export class Map{
   //on search query changed
   queryChanged(newValue){
       let searchedItems = _.filter(this.items, i => {
-          return i.text.toLowerCase().indexOf(newValue.toLowerCase()) != -1;
+          return i.text.toLowerCase().indexOf(newValue.toLowerCase()) != -1 ||
+            i.fullText.toLowerCase().indexOf(newValue.toLowerCase()) != -1;
       });
 
       console.log(searchedItems);
