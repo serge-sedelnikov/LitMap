@@ -22,13 +22,17 @@ export class Map{
   }
 
   //fetching markers from the backend and putting them on the map
-  fetchMarkers(points, map){
+  fetchMarkers(points, map, saveOriginal){
 
     //save points for future search
-    this.items = points;
+    if(saveOriginal)
+      this.items = points;
+
+    self.overlays.clearLayers();
 
     //set up clustering
-    var markers = new L.MarkerClusterGroup();
+    var markers = new L.MarkerClusterGroup().addTo(self.overlays);
+
     _.forEach(points, a=>{
         var marker = L.marker(new L.LatLng(a.pos[0], a.pos[1]), {
             icon: L.mapbox.marker.icon(
@@ -74,7 +78,7 @@ export class Map{
       })
       .then(json=>{
         //once file downloaded, fetch markers
-        this.fetchMarkers(json, map)
+        this.fetchMarkers(json, map, true)
       });
   }
 
@@ -83,6 +87,7 @@ export class Map{
     self.map = L.mapbox
         .map('map', 'mapbox.streets')
         .setView([57.15000, 65.53333], 11);
+    self.overlays = L.layerGroup().addTo(self.map);
 
     //start loading index file and once its done, fetch markers data.
     //start fetching markers
@@ -96,6 +101,7 @@ export class Map{
       });
 
       console.log(searchedItems);
+      this.fetchMarkers(searchedItems, self.map);
   }
 }
 
