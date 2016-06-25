@@ -1,23 +1,32 @@
 import _ from "lodash";
 import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
-import {inject} from 'aurelia-framework';
+import {inject, bindable} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import ma from '../elements/mediaAdjuster'
 import Remarkable from 'remarkable';
 
 @inject(I18N, HttpClient, Element)
 export class Map{
+  @bindable query;
 
   constructor(i18bn, http, Element){
     this.self = this;
     self.http = http;
     self.i18bn = i18bn;
     this.element = Element;
+    this.query = '';
+
+    //loaded up items
+    this.items = [];
   }
 
   //fetching markers from the backend and putting them on the map
   fetchMarkers(points, map){
+
+    //save points for future search
+    this.items = points;
+
     //set up clustering
     var markers = new L.MarkerClusterGroup();
     _.forEach(points, a=>{
@@ -38,9 +47,13 @@ export class Map{
         //fetch marker text as md and set poopup as html
         self.http.fetch('data/thumbs/' + a.data + '.md')
         .then(d=>{
-          return d.text();
+          return  d.text();
         })
         .then(t=>{
+          //save text for search
+          a.text = t;
+
+          //render html for marker
           let html = md.render(t);
           html = ma.adjustMedia(html);
           marker.bindPopup('<div class="marker-thumb">' + html + '</div><div class="text-right"><a href="/#/' + a.data + '" class="btn btn-default">' + self.i18bn.i18next.t('map.marker.readMore') + '</a></div>');
@@ -68,31 +81,33 @@ export class Map{
   //on attached to DOM
   attached(){
     self.map = L.mapbox
-        .map('map', 'mapbox.streets', {
-            legendControl: {
-                // Any of the valid control positions:
-                // https://www.mapbox.com/mapbox.js/api/v2.4.0/l-control/#control-positions
-                position: 'topleft'
-            }
-        })
+        .map('map', 'mapbox.streets')
         .setView([57.15000, 65.53333], 11);
-
-    self.map.legendControl.addLegend(this.mapLegend.innerHTML);
 
     //start loading index file and once its done, fetch markers data.
     //start fetching markers
     this.fetchIndex(self.map);
   }
+
+  //on search query changed
+  queryChanged(newValue){
+      let searchedItems = _.filter(this.items, i => {
+          return i.text.toLowerCase().indexOf(newValue.toLowerCase()) != -1;
+      });
+
+      console.log(searchedItems);
+  }
 }
 
+//value converter for i18n
 @inject(I18N)
 class TValueConverter{
 
   constructor(i18bn){
-    self.i18bn = i18bn;
+    this.i18bn = i18bn;
   }
 
   toView(key){
-    return self.i18n.i18next.t(key);
+    return this.i18n.i18next.t(key);
   }
 }

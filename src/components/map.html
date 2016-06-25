@@ -2,10 +2,10 @@
 
 <div id='map'></div>
 
-<div ref="mapLegend" style='display:none;'>
+<div class="mapLegend">
   <div class="input-group">
-    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-fw fa-search"></i></span>
-    <input type="text" class="form-control" id="basic-search" aria-describedby="basic-addon3" placeholder.bind="'map.searchMessage' | t">
+    <input value.two-way="query&throttle:850" type="text" class="form-control" placeholder.bind="'map.searchMessage' | t">
+    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-fw fa-search" style="font-size: 20px; color: #aaa"></i></span>
   </div>
 </div>
 
