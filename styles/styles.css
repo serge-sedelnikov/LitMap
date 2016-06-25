@@ -134,7 +134,28 @@ section{
 }
 
 .section-fixed{
-  width: 300px;
+  min-width: 300px;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .section-fixed{
+    width: 100%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .section-fixed{
+    width: 48%;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .section-fixed{
+    width: 31%;
+  }
 }
 
 .section-fixed-height{
@@ -150,7 +171,7 @@ section{
 }
 
 .bg-books{
-  background-image: url('../../content/wide_detail_picture.jpg');
+  background-image: url('../../content/wide_detail_picture1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
@@ -235,4 +256,22 @@ section{
   height: 300px;
   width: 100%;
   position: relative;
+}
+.danger{
+  color: #e51c23 !important;
+}
+
+.mapLegend{
+  position: absolute;
+  padding: 6px 12px;
+  top: 143px;
+  left: 12px;
+  z-index: 9000;
+  width: 400px;
+  background: white;
+  border-radius: 3px;
+  /*border: 1px solid #999;*/
+  /*border-color: rgba(0,0,0,.4);*/
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
 }

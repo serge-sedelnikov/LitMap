@@ -2,7 +2,8 @@
   <div class="footer">
     <div class=container>
       <div style="float: right">
-        <span>&copy;&nbsp;Дмитрий Карпов | Тюмень | Altal Oy | Finland</span>
+        <span>&copy;&nbsp;Дмитрий Карпов | Тюмень | Altal Oy | Finland |</span>&nbsp;<span click.delegate="signIn()"><i class="fa fa-child"></i></span>
+        <span if.bind="user.isLoggedIn"> | <a href="JavaScript:void(0);" t="admin.signOut" click.delegate="signOut()"></a></span>
       </div>
     </div>
   </div>

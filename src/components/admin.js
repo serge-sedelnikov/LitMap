@@ -5,10 +5,6 @@ import {EventAggregator} from "aurelia-event-aggregator";
 import $ from "jquery";
 import _ from "lodash";
 
-Array.prototype.insert = (index, item) => {
-  this.splice(index, 0, item);
-};
-
 @inject(HttpClient, EventAggregator)
 export class Admin{
 
@@ -28,13 +24,11 @@ export class Admin{
     this.subscriptions.push(this.ea.subscribe('admin-marker-saved', (item)=>{
       this.markerSaved(item);
     }));
+    this.subscriptions.push(this.ea.subscribe('admin-marker-delete', (item)=>{
+      this.markerDelete(item);
+    }));
 
-    let p1 = this.fetchIndex();
-    return p1.then((infos)=>{
-      //get the most interesting this week
-      //meaning get last 8 articles
-      this.markers = _.reverse(infos);
-    });
+    return this.refreshIndex();
   }
 
   //on page detached
@@ -45,9 +39,19 @@ export class Admin{
     });
   }
 
+  //refreshes the index data
+  refreshIndex(){
+    let p1 = this.fetchIndex();
+    return p1.then((infos)=>{
+      //get the most interesting this week
+      //meaning get last 8 articles
+      this.markers = _.reverse(infos);
+    });
+  }
+
   //fetching index file and show data on screen
   fetchIndex(){
-    return this.http.fetch('data/index.json')
+    return this.http.fetch('data/index.json?t=' + new Date().getTime())
         .then(response=>{
           //convert text to json
           return response.json()
@@ -66,6 +70,17 @@ export class Admin{
     $(this.editModal).find('.modal').modal();
   }
 
+  //adds new marker to the markers
+  addMarker(){
+    this.currentMarker = {
+      marker: '',
+      pos: [57.180707,65.517749],
+      color: '#EF6C00',
+      data: 'название файла'
+    };
+    $(this.editModal).find('.modal').modal();
+  }
+
   //user clicked to save marker and uploaded files
   markerSaved(item){
     //add or replace merker in markers
@@ -74,14 +89,50 @@ export class Admin{
     });
     //if found, replace it with new
     if(originalMarker){
+      //marker updated
       let originalIndex = _.indexOf(this.markers, originalMarker);
       this.markers.splice(originalIndex, 0, item);
-      // this.markers.insert(originalIndex, item);
       _.pull(this.markers, originalMarker);
     }
+    else{
+      //new marker added
+      this.markers.splice(0, 0, item);
+    }
+  }
 
-    //save markers json to index.json
+  //delete marker from the marker list
+  markerDelete(item){
+    //add or replace merker in markers
+    let originalMarker = _.find(this.markers, (m)=>{
+      return m.data == item.data;
+    });
+    //if found, replace it with new
+    if(originalMarker){
+      //marker updated
+      let originalIndex = _.indexOf(this.markers, originalMarker);
+      _.pull(this.markers, originalMarker);
+    }
+  }
 
-    //reload the page
+  //upload file
+  uploadFile(data){
+    if(!data)
+      return null;
+
+    let formData = new FormData();
+    formData.append('data', data);
+    formData.append('targetFileName', "index.json");
+
+    return this.http.fetch('textupload.php', {
+      method: 'POST',
+      body: formData
+    });
+  }
+
+  //saves the index file into the server
+  saveIndex(){
+    //get json text from markers
+    var jsonData = JSON.stringify(this.markers);
+    this.uploadFile(jsonData);
   }
 }

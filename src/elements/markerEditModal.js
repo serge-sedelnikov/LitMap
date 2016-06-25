@@ -62,7 +62,7 @@ export class MarkerEditModal{
     //initialize map only if not yet initialized
     if(!this.map){
       this.map = L.mapbox
-          .map(`mini-map-modal`, 'mapbox.streets',{
+          .map('mini-map-modal', 'mapbox.streets',{
             zoomControl: false,
             infoControl: false
           });
@@ -70,12 +70,17 @@ export class MarkerEditModal{
     }
 
   itemChanged(){
-    if(this.dispose)
-      this.dispose.dispose();
+    if(this.colorDispose)
+      this.colorDispose.dispose();
+    if(this.markerDispose)
+      this.markerDispose.dispose();
 
     if(this.item){
         // subscribe
-        this.dispose = this.mo.propertyObserver(this.item, 'color').subscribe(() => {
+        this.colorDispose = this.mo.propertyObserver(this.item, 'color').subscribe(() => {
+          this.setUpMarker();
+        });
+        this.markerDispose = this.mo.propertyObserver(this.item, 'marker').subscribe(() => {
           this.setUpMarker();
         });
       }
@@ -131,10 +136,12 @@ export class MarkerEditModal{
     Promise.all([f1, f2]).then(()=>{
       //notify to update index file
       this.ea.publish('admin-marker-saved', this.item);
-      //close modal
-      $(this.modal).modal('hide');
-    })
+    });
+  }
 
+  delete(){
+    //notify to delete marker
+    this.ea.publish('admin-marker-delete', this.item);
   }
 }
 

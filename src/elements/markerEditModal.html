@@ -29,8 +29,8 @@
             </div>
 
             <div class="col-md-6">
-                <label t="admin.edit.image" for="imageMarker"></label>
-                <input type="text" id="imageMarker" value.two-way="item.marker" class="form-control"/>
+                <label t="admin.edit.image" for="imageMarker"></label> <a t="admin.edit.images" href="https://www.mapbox.com/maki-icons/" target="blank"></a>
+                <input type="text" id="imageMarker" change.bind="markerChanged()" value.two-way="item.marker & updateTrigger:'blur'" class="form-control"/>
             </div>
 
             <div class="col-md-6">
@@ -38,12 +38,12 @@
                 <input type="text" id="markerData" value.two-way="item.data" class="form-control"/>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-top: 1em;">
                 <label t="admin.edit.thumb" for="thumb"></label>
                 <input type="file" name="thumbFile" id="thumb" accept=".md" files.bind="thumbFile" class="form-control"/>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-top: 1em;">
               <label t="admin.edit.full" for="full"></label>
               <input type="file" name="fullFile" id="full" accept=".md" files.bind="fullFile" class="form-control"/>
             </div>
@@ -52,8 +52,9 @@
 
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn danger float btn-link" data-dismiss="modal" click.delegate="delete()"><i class="fa fa-trash-o"></i></button>
           <button type="button" class="btn btn-default" data-dismiss="modal" t="admin.edit.cancel"></button>
-          <button type="button" class="btn btn-primary" t="admin.edit.save" click.delegate="save()"></button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" t="admin.edit.apply" click.delegate="save()"></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
