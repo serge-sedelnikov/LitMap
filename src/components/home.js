@@ -79,12 +79,21 @@ export class Home{
 
   //on search query changed
   queryChanged(newValue){
+
+    //if no search query, or search query less than 3 characters, skip
+    if(!newValue || newValue.length < 3){
+      this.searchResult = [];
+      return;
+    }
+
     let searchedItems = _.filter(this.searchBase, i => {
         return i.text.toLowerCase().indexOf(newValue.toLowerCase()) != -1 ||
           i.fullText.toLowerCase().indexOf(newValue.toLowerCase()) != -1;
     });
 
     console.log(searchedItems);
+    //set up for screen
+    this.searchResult = searchedItems;
   }
 
   //gets the closes to the current user
