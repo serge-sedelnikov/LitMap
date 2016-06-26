@@ -16,6 +16,19 @@
   <div class="container">
 
     <section>
+      <h4><i class="fa fa-search"></i>&nbsp;<span t="home.search"></span></h4>
+      <form>
+        <div class="section">
+          <div class="input-group">
+            <input value.two-way="query&throttle:850" type="text" class="form-control" placeholder.bind="'map.searchMessage' | t">
+            <span class="input-group-addon" id="basic-addon3"><i class="fa fa-fw fa-search" style="font-size: 20px; color: #aaa"></i></span>
+          </div>
+        </div>
+      </form>
+      <wall show-distance.bind="false" infos.bind="searchResult"></wall>
+    </section>
+
+    <section>
       <h4><i class="fa fa-star"></i>&nbsp;<span t="home.interestingThisWeek"></span></h4>
       <wall show-distance.bind="false" infos.bind="infos"></wall>
     </section>
