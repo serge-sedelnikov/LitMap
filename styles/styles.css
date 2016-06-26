@@ -248,3 +248,17 @@ section{
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
+
+.close-info{
+    animation-name: enter;
+    animation-duration: 0.5s;
+}
+
+@keyframes enter {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

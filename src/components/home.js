@@ -92,8 +92,11 @@ export class Home{
     });
 
     console.log(searchedItems);
-    //set up for screen
-    this.searchResult = searchedItems;
+    //set up for screen if there was a differennce
+    let difference = _.differenceWith(searchedItems, this.searchResult, _.isEqual);
+    if(difference.length > 0){
+      this.searchResult = searchedItems;
+    }
   }
 
   //gets the closes to the current user
