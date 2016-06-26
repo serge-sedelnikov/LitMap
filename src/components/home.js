@@ -7,6 +7,9 @@ import _ from 'lodash';
 @inject(I18N, HttpClient, Element)
 export class Home{
 
+  //search query as bindable
+  @bindable query;
+
   //constructor
   constructor(I18N, HttpClient, Element){
     this.http = HttpClient;
@@ -14,6 +17,9 @@ export class Home{
     this.element = Element;
     this.infos = [];
     this.closestInfos = [];
+    this.searchResult = [];
+    this.searchBase = [];
+    this.query = '';
   }
 
   //executes on activate
@@ -23,6 +29,10 @@ export class Home{
       //get the most interesting this week
       //meaning get last 8 articles
       this.infos = _.reverse(_.takeRight(infos, 8));
+
+      //load up thumbs and full articles for search
+      this.searchBase = infos;
+      this.fillUpSearchBaseData(this.searchBase);
 
       //get closest to the user in 10 km.
       return this.getClosestToMe(infos);
@@ -42,6 +52,39 @@ export class Home{
             let infos = json;
             return infos;
           });
+  }
+
+  //search base to be filled up
+  fillUpSearchBaseData(searchBase){
+    _.forEach(searchBase, s => {
+      //load up thumb article text
+      this.http.fetch('data/thumbs/'+ s.data + '.md')
+        .then(r => {
+          return r.text();
+        })
+        .then(t=>{
+          s.text = t;
+        });
+
+      //load up full article text
+      this.http.fetch('data/full/'+ s.data + '.md')
+        .then(r => {
+          return r.text();
+        })
+        .then(t=>{
+          s.fullText = t;
+        });
+    });
+  }
+
+  //on search query changed
+  queryChanged(newValue){
+    let searchedItems = _.filter(this.searchBase, i => {
+        return i.text.toLowerCase().indexOf(newValue.toLowerCase()) != -1 ||
+          i.fullText.toLowerCase().indexOf(newValue.toLowerCase()) != -1;
+    });
+
+    console.log(searchedItems);
   }
 
   //gets the closes to the current user
