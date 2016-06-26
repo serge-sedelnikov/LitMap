@@ -13,7 +13,7 @@
     "alsoInteresting": "Может быть интересно"
   },
   "map":{
-    "searchMessage": "Много всего? Ищем тут.",
+    "searchMessage": "Много всего? Ищем тут",
     "marker":{
       "readMore": "Далее"
     }
@@ -25,7 +25,8 @@
   "home":{
     "interestingThisWeek":"Интересное на этой неделе",
     "nearMe": "Недалеко от меня",
-    "search": "Очень много интересного?"
+    "search": "Очень много интересного?",
+    "searchMessage": "Ищем тут"
   },
   "admin":{
     "header": "Панель администрирования",

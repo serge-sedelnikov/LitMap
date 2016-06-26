@@ -11,7 +11,7 @@ export function configure(aurelia) {
         .use(XHR)
         .init({
           backend: {
-            loadPath: 'locales/{{lng}}.json'
+            loadPath: 'locales/{{lng}}.json?t=' + new Date().getTime()
           },
           lng : 'ru',
           attributes : ['t','i18n'],
